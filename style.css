@@ -1,0 +1,135 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style pour le logo */
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+.logo img {
+    width: 120px;
+    height: 120px;
+}
+
+/* Style pour le formulaire de connexion */
+
+.form_login {
+    background-color: #EFEFEF;
+    padding: 20px;
+}
+
+/* Style pour la partie connexion*/
+
+.form_container {
+    display: flex;
+    justify-content: center;
+}
+
+.left_side {
+    padding: 15px;
+    display: grid;
+    grid-gap: 35px;
+    border-right: 1px solid black;
+}
+
+.log_in_input {
+    display: grid;
+    grid-gap: 30px;
+}
+
+.log_in_input input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+/* Style pour le bouton de connexion */
+
+.log_in_button {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    width: 215px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    transition: ease 0.2s;
+}
+
+.log_in_button:hover {
+    padding: 10px;
+    background-color: white;
+    color: black;
+    width: 215px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Style pour le formulaire d'inscription */
+
+.form_sign_in {
+    background-color: #EFEFEF;
+    padding: 20px;
+    width: 500px;
+}
+
+/* Style pour la partie inscription */
+
+.sign_in_form {
+    display: grid;
+    grid-gap: 30px;
+}
+
+.sign_in_form input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+.right_side {
+    padding: 15px;
+    display: grid;
+    grid-gap: 35px;
+}
+
+.or {
+    text-align: center;
+}
+
+/* Style pour le bouton d'inscription */
+
+.sign_in_button {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    width: 215px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    cursor:auto;
+    transition: ease 0.2s;
+}
+
+.sign_in_button:hover {
+    padding: 10px;
+    background-color: white;
+    color: black;
+    width: 215px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
