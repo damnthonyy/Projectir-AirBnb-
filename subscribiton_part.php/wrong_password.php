@@ -26,7 +26,7 @@
                         <button class="log_in_button" name="log_in_button">CONNEXION</button>
                     </div>
                 </form>
-                <p>Votre mot de passe ou votre mail est incorrect</p style >
+                <p>Votre mot de passe ou votre mail est incorrect</p>
                 <p> <a href="./update_password.php"> Vous avez oublié votre mot de passe ?</a></p>
                 </p>
             </div>

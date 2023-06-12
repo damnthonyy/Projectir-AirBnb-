@@ -24,5 +24,5 @@ if (isset($_POST["log_in_button"])) {
             exit();
         }
     }
-    echo "<span class='error'> Mail or password isn't correct </span>";
+    header("Location: http://localhost/Projet_Air_BnB/wrong_password.php");
 }
