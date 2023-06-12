@@ -132,4 +132,35 @@ body {
     margin-right: auto;
 }
 
+/* style pour la page "changer de mot de passe" */
+
+.update_password_body {
+    height: 100vh;
+}
+
+.update_password_form {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #EFEFEF;
+    padding: 50px;
+}
+
+.change_password_input {
+    display: grid;
+    grid-gap: 50px;
+}
+
+
+.change_password_input input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none; 
+}
+
+
 

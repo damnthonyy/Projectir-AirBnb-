@@ -13,25 +13,21 @@
 
 <body>
     <div class="logo">
-        <img src="./images/Consisto-removebg-preview.png" alt="">
+        <img src="./subsription_part_images.php/Consisto-removebg-preview.png" alt="">
     </div>
     <div class="form_container">
         <div class="form_login">
             <div class="left_side">
                 <h3>DÉJÀ INSCRIT(E) ?</h3>
                 <p>Si vous êtes déjà inscrit(e) chez blabla, veuillez vous connecter ici :</p>
-                <form action="">
+                <form action="password.php" method="POST">
                     <div class="log_in_input">
                         <input type="text" placeholder="Adresse email *" name="log_in_email">
-                        <input type="text" placeholder="Mot de passe *" name="log_in_password">
-                        <button class="log_in_button">CONNEXION</button>
+                        <input type="password" placeholder="Mot de passe *" name="log_in_password">
+                        <button class="log_in_button" name="log_in_button">CONNEXION</button>
                     </div>
                 </form>
-                <p> <a href=""> Vous avez oublié votre mot de passe ?</a></p>
-                <p>Pour plus de renseignements sur la façon dont nous utilisons vos <br>
-                    données à caractère personnel, veuillez consulter <br>
-                    notre Politique de confidentialité <br>
-                    <a href="./policy.php">En savoir plus</a> .
+                <p> <a href="./update_password.php"> Vous avez oublié votre mot de passe ?</a></p>
                 </p>
             </div>
         </div>
@@ -56,9 +52,9 @@
                 </div>
                 <button class="sign_in_button" name="sign_in_ok">S'INSCRIRE</button>
                 </form>
-                <p class="or">OU</p>
+                <!-- <p class="or">OU</p>
                 <button class="Google">Continuer avec Google</button>
-                <button class="Twitter">Continuer avec Twitter</button>
+                <button class="Twitter">Continuer avec Twitter</button> -->
             </div>
         </div>
     </div>
@@ -93,4 +89,4 @@ if (isset($_POST['sign_in_ok'])) {
 ?>
 
 
-<script src="./script.js"></script> 
+<script src="./script.js"></script>

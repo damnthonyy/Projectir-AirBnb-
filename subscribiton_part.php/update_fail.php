@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>VOUS ETES CONNECTER</h1>
+    <p>Vos informations n'ont pas été modifié</p>
 </body>
 </html>
