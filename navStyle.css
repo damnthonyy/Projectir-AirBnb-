@@ -1,0 +1,15 @@
+.autocomplete-items div:hover{
+    background: black;
+    color: white;
+}
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #d4d4d4; 
+}
+
+.autocomplete-active {
+    background: rgb(0, 0, 0) !important; 
+    color: #ffffff; 
+}
