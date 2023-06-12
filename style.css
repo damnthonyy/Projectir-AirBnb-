@@ -110,26 +110,4 @@ body {
 
 /* Style pour le bouton d'inscription */
 
-.sign_in_button {
-    padding: 10px;
-    background-color: black;
-    color: white;
-    width: 215px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    cursor:auto;
-    transition: ease 0.2s;
-}
-
-.sign_in_button:hover {
-    padding: 10px;
-    background-color: white;
-    color: black;
-    width: 215px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 
