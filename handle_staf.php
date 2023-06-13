@@ -1,5 +1,5 @@
 <?php
-require('function.php');
+require_once('function.php');
 $sql = (new Sql())->getPdo();
 
 
