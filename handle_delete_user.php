@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('function.php');
+require_once('function.php');
 $sql = (new Sql())->getPdo();
 
 $id =$_SESSION['id'];

@@ -1,6 +1,6 @@
 <?php
-session_start();
-$sql = new PDO("mysql:host=localhost:3306;dbname=airbnb","root","root");
+require_once('function.php');
+$sql = (new Sql())->getPdo();
 
 $prepare = $sql->query("SELECT * FROM `users`");
 
