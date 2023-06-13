@@ -12,10 +12,8 @@
 <body>
     <div class="annonces_form">
         <form action="" method="POST" enctype="multipart/form-data">
-            <label for="Titre de l'annonce">Titre de l'annonce</label>
+            <label for="Titre de l'annonce">Adresse de l'annonce</label>
             <input type="text" name="annonce_title">
-            <label for="Addresse de l'annonce">Adresse de l'annonce</label>
-            <input type="text" name="adress">
             <label for="Région">Région</label>
             <input type="text" name="region">
             <label for="Prix de l'annonce">Prix de l'annonce</label>
@@ -24,12 +22,12 @@
             <input type="text" name="available_place">
             <label for="Descriptions de l'annonce">Description de l'annonce</label>
             <input type="text" name="annonce_resume">
-            <label for="Photo du logement1">Photo du logement 1</label>
-            <input type="file" name="first_picture">
+            <label for="Photo du logement1">Photo du logement 1 (Cette image sera l'image dans l'annonce dans la page d'acceuille)</label>
+            <input type="file" name="third_picture">
             <label for="Photo du logement2">Photo du logement 2</label>
             <input type="file" name="second_picture">
             <label for="Photo du logement3">Photo du logement 3</label>
-            <input type="file" name="third_picture">
+            <input type="file" name="first_picture">
             <button name="post_button">Postez une annonce</button>
         </form>
     </div>
@@ -46,7 +44,6 @@ try {
 
 if (isset($_POST["post_button"])) {
     $annonce = $_POST["annonce_title"];
-    $location = $_POST["adress"];
     $price = $_POST["annonce_price"];
     $place = $_POST["available_place"];
     $resume = $_POST["annonce_resume"];
@@ -60,10 +57,9 @@ if (isset($_POST["post_button"])) {
     move_uploaded_file($_FILES["second_picture"]["tmp_name"], "dossier_images/" . $second_pic);
     move_uploaded_file($_FILES["third_picture"]["tmp_name"], "dossier_images/" . $third_pic);
 
-    $requete = $bdd->prepare('INSERT INTO annonces (title, localisation, prices, places, summury, images3, images2, images1, region) VALUES (:title, :localisation, :prices, :places, :summury, :images3, :images2, :images1, :region)');
+    $requete = $bdd->prepare('INSERT INTO annonces (title,prices, places, summury, images3, images2, images1, region) VALUES (:title, :prices, :places, :summury, :images3, :images2, :images1, :region)');
     $requete->execute([
         "title" => $annonce,
-        "localisation" => $location,
         "prices" => $price,
         "places" => $place,
         "summury" => $resume,

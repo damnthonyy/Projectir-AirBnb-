@@ -20,9 +20,9 @@ if (isset($_POST["log_in_button"])) {
             echo "successfully connected";
             $_SESSION["username"] = $user["username"];
             $_SESSION["user_id"] = $user["id"];
-            header("Location: http://localhost/Projet_Air_BnB/bdd.php");
+            header("Location: http://localhost/Projet_Air_BnB/subscribiton_part.php/bdd.php");
             exit();
         }
     }
-    header("Location: http://localhost/Projet_Air_BnB/wrong_password.php");
+    header("Location: http://localhost/Projet_Air_BnB/subscribiton_part.php/wrong_password.php");
 }
