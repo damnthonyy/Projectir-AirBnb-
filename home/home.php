@@ -43,7 +43,7 @@
                     $username = ucfirst($_SESSION["username"]);
                     echo "<span class='sign-in'>" . $username . "</span>";
                 } else {
-                    echo "<span class='sign-in'><a href='/Projet_Site_Location/connexion/'>Se connecter</a></span>";
+                    echo "<span class='sign-in'><a href='http://localhost/Projet_Site_Location/subscribiton_part.php/'>Se connecter</a></span>";
                 }
             ?>
             </div>
@@ -58,7 +58,7 @@
         $username = ucfirst($_SESSION["username"]);
         echo "<span class='sign-in'>" . $username . "</span>";
     } else {
-        echo "<span class='sign-in'><a href='/Projet_Site_Location/connexion/'>Se connecter</a></span>";
+        echo "<span class='sign-in'><a href='http://localhost/Projet_Site_Location/subscribiton_part.php/'>Se connecter</a></span>";
     }
 ?>
 
