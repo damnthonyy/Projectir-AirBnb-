@@ -1,0 +1,248 @@
+.menu-above-video {
+	position: relative;
+	z-index: 2;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'EB Garamond', serif;
+}
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: transparent;
+	padding: 0 30px;
+	transition: 1s ;
+	height: 16vh;
+}
+
+header:hover {
+	background: white;
+}
+
+.menu-search {
+	display: flex;
+	gap: 20px;
+}
+
+.menu,
+.search {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+.logo img {
+	max-width: 80px;
+	height: auto;
+	cursor: pointer;
+}
+
+.reservations {
+	display: flex;
+	gap: 20px;
+}
+
+.reservations span {
+	cursor: pointer;
+}
+
+.cart-icon {
+	position: relative;
+	display: none;
+	cursor: pointer
+}
+
+.cart-icon .cart-count {
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	width: 10px;
+	height: 10px;
+	background-color: black;
+	color: white;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 10px;
+	font-size: 8px;
+	cursor: pointer;
+}
+
+.menu-items {
+	width: 400px;
+	height: 100vh;
+	background: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	position: fixed;
+	top: 0;
+	left: -100%;
+	padding: 0px 30px;
+	transition: all 0.5s ease-out;
+}
+
+.menu-items .icon {
+	display: flex;
+	justify-content: end;
+	cursor: pointer;
+}
+
+.menu-items span {
+	cursor: pointer;
+}
+
+.page {
+	display: none;
+	flex-direction: column;
+	gap: 50px;
+}
+.page.active {
+	display: flex;
+}
+  .annonce_page{
+	display: flex;
+align-items: center;
+height: 70vh;
+justify-content: center;
+  }
+  .nextback{
+	display: flex;
+justify-content: space-between;
+align-items: center;
+height: 15vh;
+padding: 0px 30px;
+box-shadow: 0px 0px 1px rgba(0, 0, 0, 1);
+  }
+  * {
+margin: 0;
+padding: 0;
+}
+
+.annonces_form {
+height: 85vh;
+width: 100%;
+}
+
+.annonces_form input {
+display: grid;
+}
+
+.annonces_form {
+display: grid;
+grid-gap: 10px;
+}
+
+.annonces_form label {
+margin-bottom: 5px;
+}
+
+.page {
+display: none;
+flex-direction: column;
+gap: 50px;
+}
+
+.page.active {
+display: flex;
+}
+
+label {
+font-size: 25px;
+}
+input[type=text] {
+height: 30px;
+padding: 0px 5px;
+width: 300px;
+border-radius: 0px;
+border: 1px solid;
+}
+
+input:focus {
+outline: none;
+}
+
+.next-button {
+background: black;
+color: white;
+border: none;
+padding: 15px 30px;
+cursor: pointer;
+}
+
+a {
+color: black;
+}
+
+.fade-in {
+opacity: 0;
+animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+from {
+opacity: 0;
+transform: translateY(50px);
+}
+
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.img-area {
+position: relative;
+width: 500px;
+height: 250px;
+background: white;
+margin: 15px 0px;
+border: 1px dotted black;
+border-width: 2px;
+border-spacing: 4px;
+overflow: hidden;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.img-area img {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: center;
+z-index: 100;
+}
+
+.img-area .icon {
+font-size: 100px;
+}
+
+h3 {
+font-size: 20px;
+font-weight: 500;
+margin-bottom: 6px;
+}
+
+p {
+color: black;
+}
+
+.select-image {
+display: block;
+width: 100%;
+padding: 16px 0;
+background: black;
+color: white;
+font-weight: 500;
+font-size: 16px;
+border: none;
+cursor: pointer;
+transition: all 0.3s ease;
+}
