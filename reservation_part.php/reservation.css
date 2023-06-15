@@ -232,7 +232,6 @@ html {
   }
   .reserv_info {
 	 width: 50%;
-	 height: 84vh;
 	 display: flex;
 	 align-items: center;
 	 justify-content: center;
@@ -242,6 +241,9 @@ html {
   }
   
   .reserv_info .info {
+     background-color: rgba(217, 217, 217, 1);
+     padding: 100px;
+     border: #000000;
 	 display: flex;
 	 gap: 30px;
 	 flex-direction: column;
@@ -293,6 +295,7 @@ html {
   }
   .footer {
 	  padding: 30px 30px;
+      background-color: rgba(217, 217, 217, 1);
   }
   
   footer {

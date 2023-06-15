@@ -363,8 +363,9 @@ if (!$annonce) {
                 <div class="reserv_info fixed">
                     <div class="info">
                         <h1><?php echo $annonce['title'] ?></h1>
-                        <span class="price"><?php echo $annonce['prices'] ?> € par nuit </span>
+                        <span class="price"><?php echo $_SESSION["price"] = $annonce['prices'] ?> € par nuit </span>
                         <form action="" method="post">
+                            <input type="date" name="date_input"></input>
                             <button type="submit" name="reservation_ok">RESERVER</button>
                         </form>
                         <a href="#details">Details</a>
@@ -433,7 +434,25 @@ if (!$annonce) {
 
 <?php
 if (isset($_POST["reservation_ok"])) {
-    $user_id = $_SESSION["user_id"];
-    $annonce_id = $_GET['id'];
+    if (!isset($_SESSION["user_id"])) {
+        echo "<script>alert('Erreur : Vous devez être connecté pour effectuer une réservation.');</script>";
+    } else {
+        $user_id = $_SESSION["user_id"];
+        $annonce_id = $_GET['id'];
+        $annonce_price = $_SESSION["price"];
+        $annonce_date = $_POST['date_input'];
+
+        $requete = $bdd->prepare('INSERT INTO reservations (users_id, annonces_id, annonces_date, reservations_price) VALUES (:user_id, :id, :date_input, :price)');
+        $requete->execute([
+            "user_id" => $user_id,
+            "id" => $annonce_id,
+            "date_input" => $annonce_date,
+            "price" => $annonce_price,
+        ]);
+        if ($requete) {
+        echo "<script>alert('Votre annonce est réservé');</script>";
+
+        }
+    }
 }
 ?>
