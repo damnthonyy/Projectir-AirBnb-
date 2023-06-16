@@ -20,8 +20,13 @@ if (isset($_POST["log_in_button"])) {
             echo "successfully connected";
             $_SESSION["username"] = $user["username"];
             $_SESSION["user_id"] = $user["id"];
-            header("Location: http://localhost/Projet_Air_BnB/bdd.php");
-            exit();
+            if($_SESSION['is_admin']==1){
+                header("location: http://localhost/Projet_Air_BnB/subscribiton_part.php/admin.php");
+                exit();
+            }else{
+            header("Location: http://localhost/Projet_Air_BnB/index.php");
+            exit();}
+        
         }
     }
     echo "<span class='error'> Mail or password isn't correct </span>";
