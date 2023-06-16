@@ -1,0 +1,212 @@
+.menu-above-video {
+    position: relative;
+    z-index: 2;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'EB Garamond', serif;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 0 30px;
+    transition: 1s ;
+    height: 16vh;
+}
+
+header:hover {
+    background: white;
+}
+
+.menu-search {
+    display: flex;
+    gap: 20px;
+}
+
+.menu,
+.search {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo img {
+    max-width: 80px;
+    height: auto;
+    cursor: pointer;
+}
+
+.reservations {
+    display: flex;
+    gap: 20px;
+}
+
+.reservations span {
+    cursor: pointer;
+}
+.cart-icon {
+    position: relative;
+    display: none;
+    cursor: pointer
+}
+.cart-icon .cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 10px;
+    font-size: 8px;
+    cursor: pointer;
+}
+
+.menu-items {
+    width: 400px;
+    height: 100vh;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    padding: 0px 30px;
+    transition: all 0.5s ease-out;
+}
+
+.menu-items .icon {
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+}
+
+.menu-items span {
+    cursor: pointer;
+}
+
+.form-control {
+    height: 30px;
+    width: 200px;
+    margin-top: 10px;
+  border: 1px solid;
+}
+
+.icon .icn {
+    font-size: 25px;
+}
+
+
+.video-section {
+    position: relative;
+    height: 85vh;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(176.62deg, #FFFFFF -69.3%, #F9F9F9 -50.22%, rgba(217, 217, 217, 0) 97.21%);
+}
+
+.mute,
+.pause {
+    display: flex;
+}
+
+.high,
+.play {
+    display: none;
+}
+
+.mute-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.pause-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+.video-section h1 {
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -250%);
+    z-index: 1;
+    color: black;
+    font-size: 45px;
+    white-space: nowrap;
+}
+.reservation-btn a, .sign-in a{
+    text-decoration: none;
+    color: black;
+}
+@media screen and (max-width: 768px) {
+
+    .menu span,
+    .search span,
+    .reservation-btn {
+        display: none;
+    }
+
+    .cart-icon {
+        display: inline-block;
+    }
+
+    .video-section h1 {
+        font-size: 35px;
+        transform: translate(-50%, -200%);
+    }
+
+    .video-section h1 {
+        white-space: normal;
+        text-align: center;
+    }
+}
+
+.container-div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.container-div .img {
+    margin-right: 10px;
+}
+
+.container-div .img img {
+    width: 500px;
+    height: auto;
+  cursor: pointer;
+}
+
