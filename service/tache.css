@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Times New Roman', Times, serif
 }
 
 header{
@@ -26,7 +27,7 @@ header img{
     max-width: 150px;
 }
 section{
-    /* width: 100%; */
+    width: 100%;
     display: block;
 }
 section img{
@@ -38,14 +39,98 @@ section img{
 section h1{
     position: absolute;
     background: white;
-    margin-top: -1.5em;
-    padding: 0.2em;
+    margin-top: -2em;
+    font-size: 21px;
+    padding: 0.5em;
     text-transform: uppercase;
+    text-align: center;
+    width: 200px;
 }
 .statut{
-    margin-top: 5em;
+    margin-top: 2em;
+    margin-left: 70em; 
 }
-.statut h1{
-    /* margin-top: 1em; */
-    background: red;
+
+.statut h2{
+    font-size: 25px;
+    text-transform: uppercase;
+}
+.statut p{
+    font-size: 22px;
+    margin-left: 5.5em;
+}
+
+.adresse h3{
+    margin-left: 1em;
+}
+
+.adresse p{
+    font-size: 21px;
+    padding: 1.5em;
+}
+.tache{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tache img{
+    width: 960px;
+    height: 490px;
+    margin-bottom: 1em;
+}
+
+.listache{
+}
+
+.listache h5{
+    font-size: 25px;
+    text-align: center;
+}
+
+.listache ul{
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.note h5{
+    padding: 1.5em;
+}
+.note input{
+    width: 70%;
+    height: 4em;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10em;
+
+    background: #D9D9D9;
+    box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.nte h5{
+    text-align: center;
+    margin-top: 1em;
+}
+
+.nte p{
+    text-align: center;
+    margin-left: 1em;
+    padding: 1em;
+    justify-content: flex-start;
+    width: 100%;
+}
+.ok{
+    width: 200px;
+    padding: 0.5em;
+    margin-left: 78em;
+    margin-bottom: 1em;
+
+    background: black;
+    color: white;
 }
