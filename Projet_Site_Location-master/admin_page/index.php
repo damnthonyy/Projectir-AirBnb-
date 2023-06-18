@@ -62,13 +62,13 @@ $prepare = $sql->query("SELECT * FROM `users`");
 
     <div class="banner">
         <img src="./image/banner.jpg" alt="banner">
-        <span>Admin</span>
+        <h1>Admin</h1>
     </div>
   <div class="liste">
-      <p>utilisateur</p>
-      <p>is_admin</p>
-      <p>is_staf</p>
-      <p>is_active</p>
+      <h2>Utilisateur</h2>
+      <h2>Admin</h2>
+      <h2>Staf</h2>
+      <h2>Active</h2>
   </div>
     
     <? while($user = $prepare -> fetch(mode: pdo::FETCH_ASSOC)){
@@ -90,10 +90,10 @@ $prepare = $sql->query("SELECT * FROM `users`");
                         <input type="hidden" name="id" value="<?= $user['id']?>">
                         <p><?= $user['is_admin']?></p>
                         <? if($user['is_admin'] == 0 ){?>
-                        <button type="submit"> is_admin</button>
+                        <button type="submit"> On</button>
                         <?};?>
                         <? if($user['is_admin'] == 1 ){?>
-                        <button type="submit"> not_admin</button>
+                        <button type="submit"> Off</button>
                         <?};?>
                     </form>
                 </li>
@@ -103,10 +103,10 @@ $prepare = $sql->query("SELECT * FROM `users`");
                     <input type="hidden" name="id" value="<?= $user['id']?>">
                     <p><?= $user['is_staf']?></p>
                     <? if($user['is_staf'] == 0 ){?>
-                    <button type="submit"> is_staf</button>
+                    <button type="submit"> On</button>
                     <?};?>
                     <? if($user['is_staf'] == 1 ){?>
-                    <button type="submit"> not_staf</button>
+                    <button type="submit"> Off</button>
                     <?};?>
                     </form>
                 </li>
@@ -116,10 +116,10 @@ $prepare = $sql->query("SELECT * FROM `users`");
                     <input type="hidden" name="id" value="<?= $user['id']?>">
                     <p><?= $user['is_active']?></p>
                     <? if($user['is_active'] == 0 ){?>
-                    <button type="submit"> is_active</button>
+                    <button type="submit"> On</button>
                     <?};?>
                     <? if($user['is_active'] == 1 ){?>
-                    <button type="submit"> not_active</button>
+                    <button type="submit"> Off</button>
                     <?};?>
                     </form>
                 </li>
