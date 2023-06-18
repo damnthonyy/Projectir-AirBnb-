@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,6 +62,7 @@
 </html>
 
 <?php
+
 require "bd.php";
 
 if (isset($_POST['sign_in_ok'])) {

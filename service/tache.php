@@ -4,6 +4,9 @@
         <img class="img" src="../service/img/premier maison.jpg" alt="">
         <h1>Taches à faire</h1>
 
+        <?php
+            echo "Bonjour ". $_SESSION['username'];
+        ?>
         <div class="statut">
             <h2>Le 01/01/2023 - 07/07/2023</h2>
             <p>Statue : en cours</p>

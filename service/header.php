@@ -1,3 +1,5 @@
+<?php include_once "cookies.php"?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

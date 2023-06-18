@@ -1,5 +1,4 @@
-<?php
-session_start();
+<?php include_once "cookies.php";
 
 require "bd.php";
 
