@@ -162,5 +162,9 @@ body {
     outline: none; 
 }
 
+.form_container .form_login .left_side .wrong span{
+    padding-left: 5px;
+
+}
 
 

@@ -280,7 +280,7 @@ header:hover {
 }
 
 .annonces_items .img img {
-	max-width: 100%;
+	max-width: 90%;
 	height: auto;
   cursor: pointer;
   transition: transform .2s
@@ -322,7 +322,7 @@ header:hover {
 	}
 
 	.annonces_items .img img {
-		max-width: 100%;
+		max-width: 90%;
 		height: auto;
 	}
 
@@ -456,7 +456,7 @@ header:hover {
 
 	.img_text_item .text {
 		height: 20px;
-		width: 100%;
+		width: 90%;
 		background: transparent;
 	}
 
@@ -594,6 +594,7 @@ select {
 	.search-bar .button {
 		display: flex;
 	}
+	
 }
 
 @media screen and (max-width: 1200px) {

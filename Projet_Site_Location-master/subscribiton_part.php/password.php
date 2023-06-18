@@ -15,19 +15,20 @@ if (isset($_POST["log_in_button"])) {
     $requete->execute(["email" => $email]);
     $user = $requete->fetch(PDO::FETCH_ASSOC);
 
-    if ($user) {
+    if ($user && $user['is_active']==1) {
         if (password_verify($password, $user["users_password"])) {
             echo "successfully connected";
             $_SESSION["username"] = $user["username"];
             $_SESSION["user_id"] = $user["id"];
-            if($_SESSION['is_admin']==1){
-                header("location: http://localhost/Projet_Air_BnB/subscribiton_part.php/admin.php");
+            $_SESSION['is_admin']= $user['is_admin'];
+            if($_SESSION['is_admin'] == 1){
+                header("location: http://localhost/Projet_Site_Location-master/admin_page/index.php");
                 exit();
             }else{
-            header("Location: http://localhost/Projet_Air_BnB/index.php");
+            header("Location: Projet_Site_Location-master");
             exit();}
         
         }
     }
-    echo "<span class='error'> Mail or password isn't correct </span>";
+    header("location:connexion.php?error=1");
 }

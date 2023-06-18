@@ -1,37 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+}
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'EB Garamond', serif;
+    list-style: none;
+}
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: transparent;
+	padding: 0 30px;
+	transition: 1s ;
+	height: 16vh;
+    background: white;
+}
+.logo img {
+	max-width: 80px;
+	height: auto;
+	cursor: pointer;
+}
 .annonces_form {
-    display: grid;
-    grid-gap: 20px;
-    place-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #EFEFEF;
-    padding: 50px;
-    width: 100%;
+    width: 500px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-
-.annonces_form input  {
-    display: grid;
-}
-
-.annonces_form {
-    display: grid;
-    grid-gap: 10px; /* Espacement entre les éléments */
-}
-
-/* Style supplémentaire pour les étiquettes (labels) */
 .annonces_form label {
-    margin-bottom: 5px; /* Espacement entre les étiquettes */
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
-/* pour la partie post des annonces */
+.annonces_form input[type="text"],
+.annonces_form input[type="number"],
+.annonces_form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    box-sizing: border-box; 
+}
+.annonces_form input[type="text"]:focus{
+    outline: none;
+}
+.annonces_form input[type="number"]:focus{
+    outline: none;
+}
+.annonces_form input[type="file"]:focus{
+    outline: none;
+}
+.annonces_form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
 
-.post_container img {
-    width: 150px;
-    display: flex;
-    background-color: red;
+.error-message {
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+.success-message {
+    background-color: #45a049;
+    margin-bottom: 10px;
 }
 
 
+.footer {
+	padding: 30px 30px;
+}
+
+footer {
+	display: flex;
+	gap: 30px;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	padding: 0px 30px;
+}
+
+footer ul input {
+	width: 90%;
+	height: 30px;
+	border-radius: 0px;
+	border: 1px solid gray;
+	padding: 2px 20px;
+}
+
+footer ul input:focus {
+	outline: none;
+}
+
+footer ul button {
+	width: 100%;
+	height: 30px;
+	border: none;
+	background: #000000;
+	color: white;
+	padding: 0px 20px;
+  cursor: pointer;
+}
+
+.footer .logo img {
+	padding-left: 20px;
+}

@@ -6,6 +6,8 @@ $sql = (new Sql())->getPdo();
 $prepare = $sql->prepare("SELECT region FROM `annonces` ");
 $prepare -> execute();
 
+$annonce = $sql->prepare("SELECT * FROM `annonces`");
+$annonce -> execute();
 ?>
 
 
@@ -33,30 +35,21 @@ $prepare -> execute();
     
       <section class="header">
          <header>
-            <div class="menu-search">
-               <div class="menu">
-                  <ion-icon class="icn" name="menu-outline"></ion-icon>
-                  <span>Menu</span>
-               </div>
-               <div class="search">
-                  <ion-icon name="heart-outline"></ion-icon>
-                  <span>Mes favoris</span>
-               </div>
-            </div>
+            
             <div class="logo">
-               <img src="images/Logo.png" alt="Logo">
+              <a href="http://localhost/Projet_Site_Location-master/"><img src="images/Logo.png" alt="Logo"></a> 
             </div>
             <div class="reservations">
                <div class="cart-icon">
                   <ion-icon name="bed-outline"></ion-icon>
                   <div class="cart-count">0</div>
                </div>
-               <span class="reservation-btn"><a href="">Réservations</a></span>
+               
                 <?php
                 session_start();
                 if (isset($_SESSION["username"])) {
                     $username = ucfirst($_SESSION["username"]);
-                    echo "<span class='sign-in'>" . $username . "</span>";
+                    echo "<span class='sign-in'><a href='/Projet_Site_Location-master/profil_part/index.php'>" . $username . "</a></span>";
                 } else {
                     echo "<span class='sign-in'><a href='subscribiton_part.php/connexion.php'>Se connecter</a></span>";
                 }
@@ -71,28 +64,13 @@ $prepare -> execute();
             <?php
     if (isset($_SESSION["username"])) {   
         $username = ucfirst($_SESSION["username"]);
-        echo "<span class='sign-in'>" . $username . "</span>";
+        echo "<span class='sign-in'><input>" . $username . "</input></span>";
     } else {
         echo "<span class='sign-in'><a href='subscribiton_part.php/connexion.php'>Se connecter</a></span>";
     }
 ?>
 
-            <hr>
-            <span>Mes favoris</span>
-            <hr>
-            <span>Mes réservations</span>
-            <hr>
-            <span>Contact : +33 06-89-75-45-90</span>
-            <hr>
-            <span>Aide</span>
-            <hr>
-            <span>
-               <span>Sélectionnez votre devise</span><br>
-               <select class="form-control">
-                  <option value="EUR">€EUR</option>
-                  <option value="USD">$USD</option>
-               </select>
-            </span>
+            
          </div>
       </section>
       <section class="video">
@@ -157,75 +135,20 @@ $prepare -> execute();
       </section>
       <section class="annonces">
          <h1>Find a stay in our apartments and rooms</h1>
+         <?php while ($annonces = $annonce-> fetch(mode: pdo::FETCH_ASSOC)){ ?>
          <div class="annonces_items">
-            <div class="img" data-aos="fade-right">
-               <img src="images/paris75.png" alt="">
+            <div class="img" data-aos="fade-right" >
+               <img src="annonces_post_part.php/dossier_images/<?php echo $annonces['images3']; ?>" alt="">
             </div>
             <div class="description" data-aos="fade-up">
-               <h1 data-aos="fade-up" data-aos-delay="50">House name</h1>
-               <p data-aos="fade-up" data-aos-delay="100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias architecto porro dicta veritatis quo dolores sequi iste soluta illum exercitationem.</p>
-               <h2 data-aos="fade-up" data-aos-delay="150">5 rue du boulevard blabla</h2>
+               <h1 data-aos="fade-up" data-aos-delay="50"><?= $annonces['title'] ?></h1>
+               <p data-aos="fade-up" data-aos-delay="100"><?= $annonces['prices']?> : € par nuit</p>
+               <h2 data-aos="fade-up" data-aos-delay="150"><?= $annonces['region']?></h2>
             </div>
          </div>
          <hr>
-         <div class="annonces_items reverse">
-            <div class="description" data-aos="fade-right">
-               <h1 data-aos="fade-right" data-aos-delay="100">House name</h1>
-               <p data-aos="fade-right" data-aos-delay="200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias architecto porro dicta veritatis quo dolores sequi iste soluta illum exercitationem.</p>
-               <h2 data-aos="fade-right" data-aos-delay="300">5 rue du boulevard blabla</h2>
-            </div>
-            <div class="img" data-aos="fade-up">
-               <img src="images/paris75.png" alt="">
-            </div>
-         </div>
-         <hr>
-         <div class="annonces_items">
-            <div class="img" data-aos="fade-down-right">
-               <img src="images/paris75.png" alt="">
-            </div>
-            <div class="description" data-aos="flip-right">
-               <h1 data-aos="flip-right" data-aos-delay="50">House name</h1>
-               <p data-aos="flip-right" data-aos-delay="100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias architecto porro dicta veritatis quo dolores sequi iste soluta illum exercitationem.</p>
-               <h2 data-aos="flip-right" data-aos-delay="150">5 rue du boulevard blabla</h2>
-            </div>
-         </div>
-         <hr>
-         <div class="annonces_items reverse">
-            <div class="description" data-aos="fade-down-left">
-               <h1 data-aos="fade-down-left" data-aos-delay="100">House name</h1>
-               <p data-aos="fade-down-left" data-aos-delay="200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias architecto porro dicta veritatis quo dolores sequi iste soluta illum exercitationem.</p>
-               <h2 data-aos="fade-down-left" data-aos-delay="300">5 rue du boulevard blabla</h2>
-            </div>
-            <div class="img" data-aos="zoom-in-down">
-               <img src="images/paris75.png" alt="">
-            </div>
-         </div>
-         <hr>
-         <div class="annonces_items">
-            <div class="img" data-aos="fade-up">
-               <img src="images/paris75.png" alt="">
-            </div>
-            <div class="description" data-aos="fade-left">
-               <h1 data-aos="fade-left" data-aos-delay="100">House name</h1>
-               <p data-aos="fade-left" data-aos-delay="200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias architecto porro dicta veritatis quo dolores sequi iste soluta illum exercitationem.</p>
-               <h2 data-aos="fade-left" data-aos-delay="300">5 rue du boulevard blabla</h2>
-            </div>
-         </div>
-         <hr>
-         <div class="annonces_items reverse">
-            <div class="description" data-aos="fade-right">
-               <h1 data-aos="fade-right" data-aos-delay="100">House name</h1>
-               <p data-aos="fade-right" data-aos-delay="200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias architecto porro dicta veritatis quo dolores sequi iste soluta illum exercitationem.</p>
-               <h2 data-aos="fade-right" data-aos-delay="300">5 rue du boulevard blabla</h2>
-            </div>
-            <div class="img" data-aos="fade-down">
-               <img src="images/paris75.png" alt="">
-            </div>
-         </div>
-         <div class="btn">
-            <button>See All</button>
-         </div>
-      </section>
+         <?};?>
+        
       <section class="guest_box">
          <h1>Be our guest</h1>
          <h2>Relax whilst our team takes care of the details.</h2>

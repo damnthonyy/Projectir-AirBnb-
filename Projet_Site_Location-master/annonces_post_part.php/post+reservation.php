@@ -21,15 +21,6 @@ if(!empty($_POST['search'])){
 ?>
 
 
-<?php
-
-
-
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +33,8 @@ if(!empty($_POST['search'])){
 
 <body>
 <h1>Votre résultats</h1>
-    <?php if ($annonceQuery->rowCount() > 0) {while ($annonce = $annonceQuery->fetch(mode: PDO::FETCH_ASSOC)){ ?>
+    <?php if ($annonceQuery->rowCount() > 0) {
+        while ($annonce = $annonceQuery->fetch(mode: PDO::FETCH_ASSOC)){ ?>
         <div class="post_container">
             <h2><?php echo $annonce['title']; ?></h2>
             <p>Ville : <?php echo $annonce['region']; ?></p>
@@ -50,10 +42,12 @@ if(!empty($_POST['search'])){
             <p>Prix : <?php echo $annonce['prices']; ?> €</p>
             <p>Nombre de place : <?php echo $annonce['places']; ?></p>
             <form action="reservation_page.php" method="post">
-            <a href="http://localhost/Projet_Site_Location-master/annonces_post_part.php/reservation_page.php"  name="<?=  $_SESSION['annonce_id'] = $annonce['id']; ?>>">Voir plus</a>
+                <button type="submit" name="id" value="<?= $annonce['id']?>" >Voir plus</a>
+                <input type="hidden" >
             </form>
-            <form action="./delete_annonce.php" method="post">
-            <button name="delete_btn" >SUPPRIMER L'ANNONCE</button>
+            <form action="delete_annonce.php" method="post">
+                <button name="id" value="<?= $annonce['id']?>">SUPPRIMER L'ANNONCE</button>
+                
             </form>
         </div>
         <?};} else {echo "Aucun résultat trouvé pour cette recherche.";}

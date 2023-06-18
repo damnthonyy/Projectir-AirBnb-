@@ -8,19 +8,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.cdnfonts.com/css/audrey" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <title>Document</title>
 </head>
 
 <body>
     <div class="logo">
-        <img src="./subsription_part_images.php/Consisto-removebg-preview.png" alt="">
+        <a href="http://localhost/Projet_Site_Location-master"><img src="./subsription_part_images.php/Consisto-removebg-preview.png" alt=""></a>
     </div>
     <div class="form_container">
         <div class="form_login">
             <div class="left_side">
                 <h3>DÉJÀ INSCRIT(E) ?</h3>
                 <p>Si vous êtes déjà inscrit(e) chez blabla, veuillez vous connecter ici :</p>
-                <form action="password.php" method="POST">
+                <?if(isset($_GET['error'])==1){?>
+                    <div class="wrong">
+                        <ion-icon name="close-circle-sharp"></ion-icon><span style="padding-left: 10px;color:red">Mauvais mots de passe ou email</span>
+                    </div>
+                <?};?>
+                <form action="password.php" method="post">
                     <div class="log_in_input">
                         <input type="text" placeholder="Adresse email *" name="log_in_email">
                         <input type="password" placeholder="Mot de passe *" name="log_in_password">
