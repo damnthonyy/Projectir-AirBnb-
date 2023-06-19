@@ -58,14 +58,11 @@ if (isset($_POST["post_button"])) {
     $fourth_picture = $_FILES['fourth_picture']["name"];
     $fifth_picture = $_FILES['fifth_picture']["name"];
 
-
-    // Déplacer les fichiers téléchargés vers un dossier sur le serveur
     move_uploaded_file($_FILES["first_picture"]["tmp_name"], "dossier_images/" . $first_pic);
     move_uploaded_file($_FILES["second_picture"]["tmp_name"], "dossier_images/" . $second_pic);
     move_uploaded_file($_FILES["third_picture"]["tmp_name"], "dossier_images/" . $third_pic);
     move_uploaded_file($_FILES["fourth_picture"]["tmp_name"], "dossier_images/" . $fourth_picture);
     move_uploaded_file($_FILES["fifth_picture"]["tmp_name"], "dossier_images/" . $fifth_picture);
-
 
     $requete = $bdd->prepare('INSERT INTO annonces (title,prices, places, summury, images3, images2, images1, region, images4, images5) VALUES (:title, :prices, :places, :summury, :images3, :images2, :images1, :region, :images4, :images5)');
     $requete->execute([

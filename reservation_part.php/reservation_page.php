@@ -67,7 +67,7 @@ if (!$annonce) {
                     <?php
                     if (isset($_SESSION["username"])) {
                         $username = ucfirst($_SESSION["username"]);
-                        echo "<span class='sign-in'>" . $username . "</span>";
+                        echo "<span class='sign-in'><a href='../profil_part/index.php'>" . $username . "</a></span>";
                     } else {
                         echo "<span class='sign-in'><a href='http://localhost/Projet_Air_BnB/subscribiton_part.php/'>Se connecter</a></span>";
                     }
@@ -79,14 +79,6 @@ if (!$annonce) {
                 <span class="icon">
                     <ion-icon class="icn" name="close-outline"></ion-icon>
                 </span>
-                <?php
-                if (isset($_SESSION["username"])) {
-                    $username = ucfirst($_SESSION["username"]);
-                    echo "<span class='sign-in'>" . $username . "</span>";
-                } else {
-                    echo "<span class='sign-in'><a href='http://localhost/Projet_Site_Location/subscribiton_part.php/'>Se connecter</a></span>";
-                }
-                ?>
                 <hr>
                 <span>Mes favoris</span>
                 <hr>
@@ -450,8 +442,7 @@ if (isset($_POST["reservation_ok"])) {
             "price" => $annonce_price,
         ]);
         if ($requete) {
-        echo "<script>alert('Votre annonce est réservé');</script>";
-
+            echo "<script>alert('Votre annonce est réservé');</script>";
         }
     }
 }
