@@ -52,9 +52,7 @@
                 </div>
                 <button class="sign_in_button" name="sign_in_ok">S'INSCRIRE</button>
                 </form>
-                <!-- <p class="or">OU</p>
-                <button class="Google">Continuer avec Google</button>
-                <button class="Twitter">Continuer avec Twitter</button> -->
+
             </div>
         </div>
     </div>

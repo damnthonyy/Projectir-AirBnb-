@@ -13,14 +13,14 @@
 
 <body>
     <div class="logo">
-        <img src="../subscribiton_part.php/subsription_part_images.php/Consisto-removebg-preview.png" alt="">
+        <a href="http://localhost/Projet_Air_BnB/home/home.php"><img src="../subscribiton_part.php/subsription_part_images.php/Consisto-removebg-preview.png" alt=""></a>
     </div>
     <div class="form_container">
         <div class="form_login">
             <div class="left_side">
                 <h3>DÉJÀ INSCRIT(E) ?</h3>
                 <p>Si vous êtes déjà inscrit(e) chez blabla, veuillez vous connecter ici :</p>
-                <form action="password.php" method="POST">
+                <form action="" method="POST">
                     <div class="log_in_input">
                         <input type="text" placeholder="Adresse email *" name="log_in_email">
                         <input type="password" placeholder="Mot de passe *" name="log_in_password">
@@ -111,5 +111,5 @@ if (isset($_POST["log_in_button"])) {
             exit();
         }
     }
-    header("Location: http://localhost/Projet_Air_BnB/subscribiton_part.php/wrong_password.php");
+    header("Location: http://localhost/Projet_Air_BnB/reservation_part.php/reservation_password_wrong.php");
 }

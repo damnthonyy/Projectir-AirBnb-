@@ -53,12 +53,15 @@ $annonce = $annonceQuery->fetch(PDO::FETCH_ASSOC);
             <input type="text" name="birthdate" value="<?php echo $user['birthdate']; ?>">
             <button type="date" name="update_btn">Mettre à jour</button>
         </form>
+        <form action="" method="post">
+            <button name="log_out_button">Se Déconnecter</button>
+        </form>
         <h1>Réservations de l'utilisateur</h1>
 
         <?php foreach ($reservations as $reservation) : ?>
             <?php $reservation_annonce_id = $reservation['annonces_id']; ?>
             <?php $reservation_annonce_image = $reservation['images3']; ?>
-            <?php $reservation_id = $reservation['id']?>
+            <?php $reservation_id = $reservation['id'] ?>
 
             <?php $reservationQuery = $bdd->prepare("SELECT * FROM annonces WHERE id = :annonce_id");
             $reservationQuery->bindParam(':annonce_id', $reservation_annonce_id);
@@ -80,10 +83,11 @@ $annonce = $annonceQuery->fetch(PDO::FETCH_ASSOC);
 
     <?php endforeach; ?>
 </body>
+
 </html>
 
-<?php 
-if(isset($_POST['remove_btn'])) {
+<?php
+if (isset($_POST['remove_btn'])) {
 
     $reservation_id;
 
@@ -94,4 +98,11 @@ if(isset($_POST['remove_btn'])) {
 
     echo "<script>alert('Votre réservation a été annuler');</script>";
 }
+
+if (isset($_POST['log_out_button'])) {
+    session_destroy();
+    header("Location: http://localhost/Projet_Air_BnB/home/home.php"); 
+    exit();
+}
+
 ?>

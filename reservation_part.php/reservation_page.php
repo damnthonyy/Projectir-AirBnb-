@@ -45,31 +45,15 @@ if (!$annonce) {
     <?php if ($annonce) : ?>
         <section class="header">
             <header>
-                <div class="menu-search">
-                    <div class="menu">
-                        <ion-icon class="icn" name="menu-outline"></ion-icon>
-                        <span>Menu</span>
-                    </div>
-                    <div class="search">
-                        <ion-icon name="heart-outline"></ion-icon>
-                        <span>Mes favoris</span>
-                    </div>
-                </div>
                 <div class="logo">
-                    <img src="../subscribiton_part.php/subsription_part_images.php/Consisto-removebg-preview.png" alt="Logo">
+                    <a href="http://localhost/Projet_Air_BnB/home/home.php"><img src="../subscribiton_part.php/subsription_part_images.php/Consisto-removebg-preview.png" alt="Logo"></a>
                 </div>
-                <div class="reservations">
-                    <div class="cart-icon">
-                        <ion-icon name="bed-outline"></ion-icon>
-                        <div class="cart-count">0</div>
-                    </div>
-                    <span class="reservation-btn"><a href="">Réservations</a></span>
                     <?php
                     if (isset($_SESSION["username"])) {
                         $username = ucfirst($_SESSION["username"]);
                         echo "<span class='sign-in'><a href='../profil_part/index.php'>" . $username . "</a></span>";
                     } else {
-                        echo "<span class='sign-in'><a href='http://localhost/Projet_Air_BnB/subscribiton_part.php/'>Se connecter</a></span>";
+                        echo "<span class='sign-in'><a href='http://localhost/Projet_Air_BnB/reservation_part.php/reservation_password.php'>Se connecter</a></span>";
                     }
                     ?>
                 </div>
