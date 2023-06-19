@@ -1,8 +1,9 @@
 <?php
 session_start();
+require_once('../function.php');
 
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=airbnb;charset=utf8', 'root', 'root');
+    $bdd = (new Sql())->getPdo();
 } catch (PDOException $e) {
     die('Erreur : ' . $e->getMessage());
 }

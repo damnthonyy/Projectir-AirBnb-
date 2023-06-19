@@ -1,14 +1,15 @@
 <?php
 session_start();
-?>
-<?php
+require_once('../function.php');
+
+
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=airbnb;', 'root', 'root');
+    $bdd = (new Sql())->getPdo();
 } catch (PDOException $e) {
     die('Erreur : ' . $e->getMessage());
 }
 
-$user_query = $bdd->query("SELECT * FROM users WHERE id = ".$_SESSION["user_id"]);
+$user_query = $bdd->query("SELECT * FROM users WHERE id = ". $_SESSION["user_id"]);
 $users = $user_query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -20,11 +21,11 @@ $users = $user_query->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     <?php foreach ($users as $user) : ?>
-        <?php echo $user['mail']; ?>
-        <?php echo $user['username']; ?>
-        <?php echo $user['users_password']; ?>
-        <?php echo $user['birthdate']; ?>
-        <?php echo $user['created_at']; ?>
+       <p> <?php echo $user['mail']; ?> </p>
+        <p><?php echo $user['username']; ?></p>
+       
+        <p><?php echo $user['birthdate']; ?></p>
+        
     <?php endforeach; ?>
 </body>
 </html>

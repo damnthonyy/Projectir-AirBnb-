@@ -1,5 +1,5 @@
 <?php
-require_once("/MAMP/htdocs/Projet_Site_Location-master/function.php");
+require_once("../function.php");
 try {
     $bdd = (new Sql)->getPdo();
 } catch (PDOException $e) {

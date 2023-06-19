@@ -1,11 +1,14 @@
 <?php
+ require_once('../function.php');
+
+ 
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=airbnb;charset=utf8', 'root', 'root');
+    $bdd = (new Sql())->getPdo();
 } catch (PDOException $e) {
     die('Erreur : ' . $e->getMessage());
 }
 
-if (!empty($_POST['sign_in_ok'])) {
+if (!empty($_POST['email'])&& !empty($_POST['username'])&&!empty($_POST['password'])) {
     $email = $_POST['email'];
     $username = $_POST['username'];
     $password = $_POST['password'];

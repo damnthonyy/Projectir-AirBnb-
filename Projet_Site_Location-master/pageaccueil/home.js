@@ -1,90 +1,19 @@
-const $OpenBtn = document.querySelector('.menu-search .menu .icn');
-const $CloseBtn = document.querySelector('.menu-items .icon .icn');
-const $menuItems = document.querySelector('.menu-items');
-const $mute = document.querySelector('.mute');
-const $high = document.querySelector('.high');
-const $pause =  document.querySelector('.pause');
-const $play = document.querySelector('.play');
-const $player = document.querySelector('.video-background');
+document.addEventListener("DOMContentLoaded", function () {
+  var profilBtn = document.getElementById("profil_btn");
+  var profilInfo = document.getElementById("profil_info");
 
-
-
-$OpenBtn.addEventListener('click', function () {
-  $menuItems.style.left = 0;
-});
-$CloseBtn.addEventListener('click', function () {
-  $menuItems.style.left = "-100%";
-});
-
-
-$mute.addEventListener('click', function () {
-    $player.muted = false;
-    $mute.style.display = 'none';
-    $high.style.display = 'flex';
-});
-
-$high.addEventListener('click', function () {
-    $player.muted = true;
-    $mute.style.display = 'flex';
-    $high.style.display = 'none';
-});
-
-$pause.addEventListener('click', function () {
-    $player.pause();
-    $pause.style.display = 'none';
-    $play.style.display = 'flex';
-});
-
-$play.addEventListener('click', function () {
-    $player.play();
-    $pause.style.display = 'flex';
-    $play.style.display = 'none';
-});
-
-$(document).ready(function () {
-  var minDate = new Date();
-  $("#arrival").datepicker({
-    showAnim: 'drop',
-    numberOfMonths: 1,
-    minDate: minDate,
-    dateFormat: 'dd/mm/yy',
-    onClose: function(selectedDate) {
-      $("#depature").datepicker("option", "minDate", selectedDate);
-    }
-  });
-
-  $("#depature").datepicker({
-    showAnim: 'drop',
-    numberOfMonths: 1,
-    minDate: minDate,
-    dateFormat: 'dd/mm/yy',
-    onClose: function(selectedDate) {
-      $("#arrival").datepicker("option", "maxDate", selectedDate);
+  profilBtn.addEventListener("click", function () {
+    if (profilInfo.style.maxHeight) {
+      profilInfo.style.maxHeight = null;
+      profilInfo.style.animation = "slideUp 0.5s ease-in-out";
+      setTimeout(function () {
+        profilInfo.style.display = "none";
+        profilInfo.style.animation = "";
+      }, 500);
+    } else {
+      profilInfo.style.display = "block";
+      profilInfo.style.animation = "slideDown 0.5s ease-in-out";
+      profilInfo.style.maxHeight = profilInfo.scrollHeight + "px";
     }
   });
 });
-
-window.addEventListener('DOMContentLoaded', function() {
-  var elements = document.querySelectorAll('body *');
-  for (var i = 0; i < elements.length; i++) {
-    var element = elements[i];
-    var classNames = element.className.split(' ');
-
-    if (
-      classNames.indexOf('search-bar') === -1 &&
-      classNames.indexOf('container') === -1 &&
-      classNames.indexOf('input') === -1 &&
-      classNames.indexOf('reservations') === -1 &&
-      classNames.indexOf('cart-icon') === -1 &&
-      !element.classList.contains('search-bar') &&
-      !element.classList.contains('container') &&
-      !element.classList.contains('input') &&
-      !element.classList.contains('reservations') &&
-      !element.classList.contains('cart-icon')
-    ) {
-      element.classList.add('no-overflow');
-    }
-  }
-});
-
-

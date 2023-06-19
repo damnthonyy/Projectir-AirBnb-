@@ -77,7 +77,7 @@ $prepare = $sql->query("SELECT * FROM `users`");
         <div classe="table">
             <ul>
                 <li class="user">
-                    <form action="handle_delete_user.php" method="post">
+                    <form action="delete.php" method="post">
                       <p><?= $user['username']?></p>
                       <? $_SESSION['id'] = $user['id']?>
                       <button>delete</button>

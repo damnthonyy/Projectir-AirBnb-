@@ -1,5 +1,7 @@
 <?php
-$bdd = new PDO('mysql:host=localhost;dbname=airbnb', 'root', 'root');
+require_once('../function.php');
+
+ $bdd = (new Sql())->getPdo();
 if (isset($_POST['id'])) {
     $id =  $_POST['id'];
 

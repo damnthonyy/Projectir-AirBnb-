@@ -32,8 +32,9 @@ if (isset($_POST["update_password"])) {
     $mail = $_POST["email"];
     $new_password = $_POST["validate_password"];
     $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+    require_once('..function.php');
 
-    $bdd = new PDO('mysql:host=localhost;dbname=airbnb;charset=utf8', 'root', 'root');
+    $bdd = (new Sql())->getPdo();
 
     $stmt = $bdd->prepare("UPDATE users SET users_password = :validate_password WHERE mail = :email");
     $stmt->bindValue(':validate_password', $hashed_password);

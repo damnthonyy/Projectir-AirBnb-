@@ -29,7 +29,7 @@
                 <?};?>
                 <form action="password.php" method="post">
                     <div class="log_in_input">
-                        <input type="text" placeholder="Adresse email *" name="log_in_email">
+                        <input type="text" placeholder="Adresse email *" autocomplete="off" name="log_in_email">
                         <input type="password" placeholder="Mot de passe *" name="log_in_password">
                         <button class="log_in_button" name="log_in_button">CONNEXION</button>
                     </div>
@@ -43,10 +43,10 @@
                 <h3>CRÉEZ VOTRE COMPTE</h3>
                 <p>Inscrivez-vous et profitez de nos appartements.</p>
                 <div class="sign_in_input">
-                    <form action="handle_inscription.php" class="sign_in_form" method="POST">
-                        <input type="text" placeholder="Adresse email *" name="email">
+                    <form action="handle_inscription.php" class="sign_in_form" method="post">
+                        <input type="text" placeholder="Adresse email *" autocomplete="off" name="email">
                         <input type="password" placeholder="Mot de passe *" name="password">
-                        <input type="text" placeholder="Nom d'utilisateur" name="username">
+                        <input type="text" placeholder="Nom d'utilisateur" autocomplete="off" name="username">
                         <div class="radio" name='gender'>
                             <label for="homme">Homme</label>
                             <input type="radio" placeholder="" name="gender" value="male">

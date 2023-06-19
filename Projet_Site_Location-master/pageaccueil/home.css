@@ -280,7 +280,7 @@ header:hover {
 }
 
 .annonces_items .img img {
-	max-width: 90%;
+	max-width: 100%;
 	height: auto;
   cursor: pointer;
   transition: transform .2s
@@ -322,7 +322,7 @@ header:hover {
 	}
 
 	.annonces_items .img img {
-		max-width: 90%;
+		max-width: 100%;
 		height: auto;
 	}
 
@@ -456,7 +456,7 @@ header:hover {
 
 	.img_text_item .text {
 		height: 20px;
-		width: 90%;
+		width: 100%;
 		background: transparent;
 	}
 
@@ -594,7 +594,6 @@ select {
 	.search-bar .button {
 		display: flex;
 	}
-	
 }
 
 @media screen and (max-width: 1200px) {
@@ -607,3 +606,45 @@ select {
 .no-overflow {
   overflow: hidden;
 }
+
+.profile a {
+	text-decoration: none;
+	color: black;
+}
+
+.profil_btn_is_active {
+	display: block;
+}
+
+.profil_info {
+	display: none;
+}
+
+#profil_info {
+	display: none;
+  }
+  
+  @keyframes slideDown {
+	0% {
+	  opacity: 0;
+	  transform: translateY(-20px);
+	}
+	100% {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+  }
+  
+  @keyframes slideUp {
+	0% {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+	100% {
+	  opacity: 0;
+	  transform: translateY(-20px);
+	}
+}
+
+
+ 
