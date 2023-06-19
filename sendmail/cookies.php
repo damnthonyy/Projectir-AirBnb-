@@ -6,7 +6,7 @@ session_start();
 $user_id = $_SESSION['user_id'];
 $username = $_SESSION['username'];
 
-setcookie('session_id', session_id(), time() + 60, '/');
+setcookie('session_id', session_id(), time() + 3600*24, '/');
 
 if (isset($_COOKIE['session_id']) && !empty($_COOKIE['session_id'])) {
     
