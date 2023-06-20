@@ -36,12 +36,12 @@
 // }
 
 
-if (isset($_POST['email']) && $_POST['email']) {
+if (isset($_POST['email'])) {
     include "bd.php";
     $token = uniqid();
-    $subject = "réinitialisation de mot de passe";
+    $subject = "Réinitialisation du mot de passe";
 
-    $url = "http://localhost/Projet_Site_Location-2/sendmail/token/update_password.php";
+    $url = "http://localhost/Projet_Site_Location-2/sendmail/token/update_password.php?token=$token";
 
     $message = "Bonjour, voici le lien pour réinitialiser votre mot de passe: $url";
     $headers = "content-Type: text/plain; charset=utf-8";

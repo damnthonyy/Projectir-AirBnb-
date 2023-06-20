@@ -15,7 +15,7 @@ if (isset($_POST["log_in_button"])) {
             echo "successfully connected";
             $_SESSION["username"] = $user["username"];
             $_SESSION["user_id"] = $user["id"];
-            header("Location: ../sendmail/bdd.php");
+            header("Location: ../sendmail/accueil.php");
             exit();
         }
     }

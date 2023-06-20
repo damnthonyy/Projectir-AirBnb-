@@ -3,10 +3,7 @@ session_start();
 
 // Après une connexion réussie
 
-$user_id = $_SESSION['user_id'];
-$username = $_SESSION['username'];
-
-setcookie('session_id', session_id(), time() + 3600*24, '/');
+setcookie('session_id', session_id(), time() + 3600, '/');
 
 if (isset($_COOKIE['session_id']) && !empty($_COOKIE['session_id'])) {
     
