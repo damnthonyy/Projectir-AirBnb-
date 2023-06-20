@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Poster des annonces</title>
+</head>
+
+<body>
+<section class="header">
+    <header>
+       <div class="menu-search">
+          <div class="menu">
+             <ion-icon class="icn" name="menu-outline"></ion-icon>
+             <span>Menu</span>
+          </div>
+          <div class="search">
+             <ion-icon name="heart-outline"></ion-icon>
+             <span>Mes favoris</span>
+          </div>
+       </div>
+       <div class="logo">
+          <img src="images/Logo.png" alt="Logo">
+       </div>
+       <div class="reservations">
+          <div class="cart-icon">
+             <ion-icon name="bed-outline"></ion-icon>
+             <div class="cart-count">0</div>
+          </div>
+          <span class="reservation-btn"><a href="">Réservations</a></span>
+           <span>se connecter</span>
+       </div>
+    </header>
+    <div class="menu-items menu-above-video">
+       <div class="menu-search "></div>
+       <span class="icon">
+          <ion-icon class="icn" name="close-outline"></ion-icon>
+       </span>
+       <span>se connecter</span>
+       <hr>
+       <span>Mes favoris</span>
+       <hr>
+       <span>Mes réservations</span>
+       <hr>
+       <span>Contact : +33 06-89-75-45-90</span>
+       <hr>
+       <span>Aide</span>
+       <hr>
+       <span>
+          <span>Sélectionnez votre devise</span><br>
+          <select class="form-control">
+             <option value="EUR">€EUR</option>
+             <option value="USD">$USD</option>
+          </select>
+       </span>
+    </div>
+ </section>
+ <div class="annonces_form">
+  <form action="" method="POST" enctype="multipart/form-data">
+    <div class="form">
+      <div class="page active">
+        <label for="Titre de l'annonce">Adresse de l'annonce</label>
+        <input type="text" name="annonce_title" required>
+      </div>
+      <div class="page">
+        <label for="Région">Région</label>
+        <input type="text" name="region" required>
+      </div>
+      <div class="page">
+        <label for="Prix de l'annonce">Prix de l'annonce</label>
+        <input type="text" name="annonce_price" required>
+      </div>
+      <div class="page">
+        <label for="Nombre de place de l'annonce">Nombre de place de l'annonce</label>
+        <input type="text" name="available_place" required>
+      </div>
+      <div class="page">
+        <label for="Descriptions de l'annonce">Description de l'annonce</label>
+        <input type="text" name="annonce_resume" required>
+      </div>
+      <div class="page">
+        <label for="Photo du logement1">Photo du logement 1</label>
+        <input type="file" name="third_picture" required>
+      </div>
+      <div class="page">
+        <label for="Photo du logement2">Photo du logement 2</label>
+        <input type="file" name="second_picture" required>
+      </div>
+      <div class="page">
+        <label for="Photo du logement3">Photo du logement 3</label>
+        <input type="file" name="first_picture" required>
+      </div>
+      <div class="page">
+        <label for="Photo du logement3">Photo du logement 4</label>
+        <input type="file" name="fourth_picture" required>
+      </div>
+      <div class="page">
+        <label for="Photo du logement3">Photo du logement 5</label>
+        <input type="file" name="fifth_picture" required>
+      </div>
+    </div>
+    <div class="nextback">
+      <a class="back" href="#">Retour</a>
+      <div class="buttons">
+        <button class="next">Suivant</button>
+        <button class="post_button">Postez une annonce</button>
+      </div>
+    </div>
+  </form>
+</div>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
