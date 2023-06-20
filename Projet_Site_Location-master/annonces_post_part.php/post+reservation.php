@@ -2,17 +2,16 @@
 
 <?php
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=airbnb;charset=utf8', 'root', 'root');
+    $bdd = new PDO('mysql:host=localhost;dbname=airbnb', 'root', 'root');
 } catch (PDOException $e) {
     die('Erreur : ' . $e->getMessage());
 }
 
-$annonceQuery = $bdd->query("SELECT * FROM annonces");
-$annonces = $annonceQuery->fetchAll(PDO::FETCH_ASSOC);
-
-if (!$annonces) {
-    exit();
-}
+if(!empty($_POST['search'])){
+    $annonceQuery = $bdd->prepare("SELECT * FROM `annonces` WHERE region = :region");
+  $annonceQuery->execute(array(':region'=> $_POST['search']));
+}else{
+    header("location: ../index.php");}
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +25,9 @@ if (!$annonces) {
 </head>
 
 <body>
-    <?php foreach ($annonces as $annonce) : ?>
+    
+    <?php if ($annonceQuery->rowCount() > 0) {
+        while ($annonce = $annonceQuery->fetch(mode: PDO::FETCH_ASSOC)){ ?>
         <div class="post_container">
             <h2><?php echo $annonce['title']; ?></h2>
             <p>Ville : <?php echo $annonce['region']; ?></p>
@@ -38,7 +39,7 @@ if (!$annonces) {
             <button name="delete_btn" >SUPPRIMER L'ANNONCE</button>
             </form>
         </div>
-    <?php endforeach; ?>
+        <?};} else {echo "Aucun résultat trouvé pour cette recherche.";}?>
 </body>
 
 </html>

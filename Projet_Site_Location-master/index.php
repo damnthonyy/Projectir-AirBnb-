@@ -132,14 +132,17 @@ $annonce -> execute();
          <h1>Find a stay in our apartments and rooms</h1>
          <?php while ($annonces = $annonce-> fetch(mode: pdo::FETCH_ASSOC)){ ?>
          <div class="annonces_items">
-            <div class="img" data-aos="fade-right" >
-               <img src="annonces_post_part.php/dossier_images/<?php echo $annonces['images3']; ?>" alt="">
-            </div>
-            <div class="description" data-aos="fade-up">
-               <h1 data-aos="fade-up" data-aos-delay="50"><?= $annonces['title'] ?></h1>
-               <p data-aos="fade-up" data-aos-delay="100"><?= $annonces['prices']?> : € par nuit</p>
-               <h2 data-aos="fade-up" data-aos-delay="150"><?= $annonces['region']?></h2>
-            </div>
+            
+            
+               <div class="img" data-aos="fade-right" >
+                  <form action="./annonces_post_part.php/post+reservation.php"><a href="./annonces_post_part.php/post+reservation.php"><img src="annonces_post_part.php/dossier_images/<?php echo $annonces['images3']; ?>" alt=""></a></form>
+               </div>
+               <div class="description" data-aos="fade-up">
+                  <h1 data-aos="fade-up" data-aos-delay="50"><?= $annonces['title'] ?></h1>
+                  <p data-aos="fade-up" data-aos-delay="100"><?= $annonces['prices']?> : € par nuit</p>
+                  <h2 data-aos="fade-up" data-aos-delay="150"><?= $annonces['region']?></h2>
+               </div>
+            
          </div>
          <hr>
          <?};?>

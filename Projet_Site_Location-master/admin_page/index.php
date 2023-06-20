@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('../vendor/autoload.php');
+require('../function.php');
 $sql = (new Sql())->getPdo();
 
 

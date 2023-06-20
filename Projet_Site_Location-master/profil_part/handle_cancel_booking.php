@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_POST['remove_btn'])) {
 
     
@@ -14,7 +15,7 @@ if (isset($_POST['remove_btn'])) {
 
 if (isset($_POST['log_out_button'])) {
     session_destroy();
-    header("Location: http://localhost/Projet_Air_BnB/home/home.php"); 
+    header("Location: ../index.php"); 
     exit();
 }
 

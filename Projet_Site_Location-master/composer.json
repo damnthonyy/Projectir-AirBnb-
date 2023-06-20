@@ -1,6 +1,9 @@
 {
-    "name": "dai/projet_site_location-master",
-   
-    
+    "name": "dai/projet_airbnb",
+    "autoload": {
+        "psr-4": {
+            "Dai\\ProjetAirbnb\\": "src/"
+        }
+    },
     "require": {}
 }

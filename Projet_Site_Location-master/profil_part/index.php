@@ -53,7 +53,7 @@ $annonce = $annonceQuery->fetch(PDO::FETCH_ASSOC);
             <input type="text" name="birthdate" value="<?php echo $user['birthdate']; ?>">
             <button type="date" name="update_btn">Mettre à jour</button>
         </form>
-        <form action="" method="post">
+        <form action="handle_cancel_booking.php" method="post">
             <button name="log_out_button">Se Déconnecter</button>
         </form>
         <h1>Réservations de l'utilisateur</h1>
