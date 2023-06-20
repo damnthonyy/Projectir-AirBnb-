@@ -41,10 +41,13 @@ if (isset($_POST["update_password"])) {
     $result = $stmt->execute();
 
     if ($result) {
-        header('Location: http://localhost/Projet_Air_BnB/index.php');
+        header('Location: ./index.php');
         exit();
     } else {
-        header('Location: http://localhost/Projet_Air_BnB/update_fail.php');
+        header('Location: ./update_fail.php');
         exit();
     }
 }
+?>
+
+

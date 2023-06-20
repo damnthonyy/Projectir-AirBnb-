@@ -107,9 +107,11 @@ if (isset($_POST["log_in_button"])) {
             echo "successfully connected";
             $_SESSION["username"] = $user["username"];
             $_SESSION["user_id"] = $user["id"];
-            header("Location: http://localhost/Projet_Air_BnB/reservation_part.php/reservation_page.php?id=" . $_SESSION['annonce_id']);
+            header("Location: ../reservation_part.php/reservation_page.php?id=" . $_SESSION['annonce_id']);
             exit();
         }
     }
-    header("Location: http://localhost/Projet_Air_BnB/reservation_part.php/reservation_password_wrong.php");
+    header("Location: ../reservation_part.php/reservation_password_wrong.php");
 }
+?>
+

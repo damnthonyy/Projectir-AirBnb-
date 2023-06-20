@@ -46,40 +46,18 @@ if (!$annonce) {
         <section class="header">
             <header>
                 <div class="logo">
-                    <a href="http://localhost/Projet_Air_BnB/home/home.php"><img src="../subscribiton_part.php/subsription_part_images.php/Consisto-removebg-preview.png" alt="Logo"></a>
+                    <a href="../home/home.php"><img src="../subscribiton_part.php/subsription_part_images.php/Consisto-removebg-preview.png" alt="Logo"></a>
                 </div>
-                    <?php
-                    if (isset($_SESSION["username"])) {
-                        $username = ucfirst($_SESSION["username"]);
-                        echo "<span class='sign-in'><a href='../profil_part/index.php'>" . $username . "</a></span>";
-                    } else {
-                        echo "<span class='sign-in'><a href='http://localhost/Projet_Air_BnB/reservation_part.php/reservation_password.php'>Se connecter</a></span>";
-                    }
-                    ?>
+                <?php
+                if (isset($_SESSION["username"])) {
+                    $username = ucfirst($_SESSION["username"]);
+                    echo "<span class='sign-in'><a href='../profil_part/index.php'>" . $username . "</a></span>";
+                } else {
+                    echo "<span class='sign-in'><a href='../reservation_part.php/reservation_password.php'>Se connecter</a></span>";
+                }
+                ?>
                 </div>
             </header>
-            <div class="menu-items menu-above-video">
-                <div class="menu-search "></div>
-                <span class="icon">
-                    <ion-icon class="icn" name="close-outline"></ion-icon>
-                </span>
-                <hr>
-                <span>Mes favoris</span>
-                <hr>
-                <span>Mes réservations</span>
-                <hr>
-                <span>Contact : +33 06-89-75-45-90</span>
-                <hr>
-                <span>Aide</span>
-                <hr>
-                <span>
-                    <span>Sélectionnez votre devise</span><br>
-                    <select class="form-control">
-                        <option value="EUR">€EUR</option>
-                        <option value="USD">$USD</option>
-                    </select>
-                </span>
-            </div>
         </section>
         <style>
             html {
@@ -418,15 +396,27 @@ if (isset($_POST["reservation_ok"])) {
         $annonce_price = $_SESSION["price"];
         $annonce_date = $_POST['date_input'];
 
-        $requete = $bdd->prepare('INSERT INTO reservations (users_id, annonces_id, annonces_date, reservations_price) VALUES (:user_id, :id, :date_input, :price)');
-        $requete->execute([
-            "user_id" => $user_id,
-            "id" => $annonce_id,
+        $existing_reservation_query = $bdd->prepare("SELECT * FROM reservations WHERE annonces_id = :annonce_id AND annonces_date = :date_input");
+        $existing_reservation_query->execute([
+            "annonce_id" => $annonce_id,
             "date_input" => $annonce_date,
-            "price" => $annonce_price,
         ]);
-        if ($requete) {
-            echo "<script>alert('Votre annonce est réservé');</script>";
+
+        if ($existing_reservation_query->rowCount() > 0) {
+            echo "<script>alert('La date sélectionnée n\'est pas disponible. Veuillez choisir une autre date.');</script>";
+        } else {
+            // Insérer la nouvelle réservation
+            $requete = $bdd->prepare('INSERT INTO reservations (users_id, annonces_id, annonces_date, reservations_price) VALUES (:user_id, :id, :date_input, :price)');
+            $requete->execute([
+                "user_id" => $user_id,
+                "id" => $annonce_id,
+                "date_input" => $annonce_date,
+                "price" => $annonce_price,
+            ]);
+
+            if ($requete) {
+                echo "<script>alert('Votre annonce est réservée');</script>";
+            }
         }
     }
 }

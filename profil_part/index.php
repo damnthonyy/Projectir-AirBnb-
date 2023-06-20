@@ -101,8 +101,10 @@ if (isset($_POST['remove_btn'])) {
 
 if (isset($_POST['log_out_button'])) {
     session_destroy();
-    header("Location: http://localhost/Projet_Air_BnB/home/home.php"); 
+    header("Location: ../home/home.php"); 
     exit();
 }
 
 ?>
+
+<a href="../home/home.php"></a>
