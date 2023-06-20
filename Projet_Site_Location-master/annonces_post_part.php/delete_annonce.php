@@ -1,15 +1,15 @@
 <?php
-require_once('../function.php');
+session_start();
 
- $bdd = (new Sql())->getPdo();
-if (isset($_POST['id'])) {
-    $id =  $_POST['id'];
+if (isset($_POST['delete_btn'])) {
+    $id =  $_SESSION['annonce_id'];
 
-    
+    $bdd = new PDO('mysql:host=localhost;dbname=airbnb;charset=utf8', 'root', 'root');
     $delete_query = $bdd->prepare("DELETE FROM annonces WHERE id = :id");
-    $delete_query->execute([':id'=> $id]);
+    $delete_query->bindValue(':id', $id);
+    $delete_query->execute();
 
-    header('location: http://localhost/Projet_Site_Location-master');
+    echo "L'annonce a été supprimée avec succès !";
     
-};
-echo($_POST['id']);
+}
+?>
