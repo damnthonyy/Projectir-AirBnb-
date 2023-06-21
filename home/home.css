@@ -279,15 +279,40 @@ header:hover {
 	padding: 30px 5px;
 }
 
+.annonces_items .img {
+	width: 50%;
+	height: 75vh;
+	overflow: hidden;
+	position: relative;
+}
+
 .annonces_items .img img {
-	max-width: 100%;
-	height: auto;
-  cursor: pointer;
-  transition: transform .2s
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	cursor: pointer;
+	transition: transform 0.2s ease-in-out;
 }
-.annonces_items .img img:hover{
-  transform: scale(1.5);
+
+.annonces_items .img:hover img {
+	transform: scale(1.1);
 }
+
+@media (max-width: 768px) {
+	.annonces_items {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 15px 5px;
+	}
+
+	.annonces_items .img {
+		width: 100%;
+		height: 50vh;
+		margin-bottom: 15px;
+	}
+}
+
+
 .description {
 	text-align: center;
 	width: 50%;

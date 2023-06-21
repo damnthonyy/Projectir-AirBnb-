@@ -7,7 +7,7 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 
-$users_id = $_SESSION["user_id"];
+$users_id =  $_SESSION["user_id"];
 
 $user_query = $bdd->prepare("SELECT * FROM users WHERE id = :users_id");
 $user_query->bindParam(':users_id', $users_id);
@@ -27,7 +27,14 @@ $annonceQuery->bindParam(':annonce_id', $annonce_id);
 $annonceQuery->execute();
 $annonce = $annonceQuery->fetch(PDO::FETCH_ASSOC);
 
+$commentaires_query = $bdd->prepare("SELECT * FROM annonces_comments WHERE user_id = :users_id");
+$commentaires_query->bindParam(':users_id', $users_id);
+$commentaires_query->execute();
+$commentaires = $commentaires_query->fetchAll(PDO::FETCH_ASSOC);
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -103,6 +110,8 @@ $annonce = $annonceQuery->fetch(PDO::FETCH_ASSOC);
 </div>
 
 
+
+
     <div class="info">
         <?php foreach ($users as $user) : ?>
             <h1>Informations de l'utilisateur</h1>
@@ -134,12 +143,20 @@ $annonce = $annonceQuery->fetch(PDO::FETCH_ASSOC);
             </form>
         <?php endforeach; ?>
     </div>
-
+    
     </section>
 
-    <section class="comment">
-        <div class="comment_item"></div>
-    </section>
+    <?php foreach ($commentaires as $commentaire) : ?>
+        <div class="comment">
+        <ul class="comment_item">
+            <li>
+                <?php echo $commentaire['body'] ?>
+            </li>
+        </ul>
+        </div>
+    <?php endforeach; ?>
+
+    
 
     <section class="footer" data-aos="fade-right"
       data-aos-anchor-placement="center-bottom">
@@ -197,14 +214,15 @@ $annonce = $annonceQuery->fetch(PDO::FETCH_ASSOC);
 
 <?php
 if (isset($_POST['remove_btn'])) {
-    $reservation_id = $_POST['remove_btn'];
 
-    $bdd = new PDO('mysql:host=localhost;dbname=airbnb;charset=utf8', 'root', '');
-    $delete_reservation = $bdd->prepare('DELETE FROM reservations WHERE id = :reservation_id');
-    $delete_reservation->bindParam(':reservation_id', $reservation_id);
+    $reservation_id;
+
+    $bdd = new PDO('mysql:host=localhost;dbname=airbnb;charset=utf8', 'root', 'root');
+    $delete_reservation = $bdd->prepare('DELETE FROM reservations WHERE id = :reservation_id ');
+    $delete_reservation->bindValue(':reservation_id', $reservation_id);
     $delete_reservation->execute();
 
-    echo "<script>alert('Votre réservation a été annulée');</script>";
+    echo "<script>alert('Votre réservation a été annuler');</script>";
 }
 
 if (isset($_POST['log_out_button'])) {
@@ -212,4 +230,5 @@ if (isset($_POST['log_out_button'])) {
     header("Location: ../home/home.php");
     exit();
 }
+
 ?>

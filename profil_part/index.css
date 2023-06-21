@@ -192,6 +192,7 @@ h1{
     border: none;
     text-align: start;
     color: red;
+	cursor: pointer;
 }
 .comment{
     padding: 0px 50px 20px 50px;

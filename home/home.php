@@ -117,94 +117,89 @@ if (!$annonces) {
       <h1>Find a stay in our apartments and rooms</h1>
       <?php foreach ($annonces as $annonce) : ?>
          <div class="annonces_items">
-            <div class="img" data-aos="fade-right">
+            <div class="img">
                <a href="../reservation_part.php/reservation_page.php ?id=<?php echo $_SESSION['annonce_id'] = $annonce['id']; ?>"><img src="../annonces_post_part.php/dossier_images/<?php echo $annonce['images3']; ?>" alt=""></a>
             </div>
-            <div class="description" data-aos="fade-up">
-               <h1 data-aos="fade-up" data-aos-delay="50"><?php echo $annonce['title']; ?></h1>
-               <h2 data-aos="fade-up" data-aos-delay="150"><?php echo $annonce['region']; ?></h2>
-               <p data-aos="fade-up" data-aos-delay="100"><?php echo $annonce['prices']; ?> € par nuit</p>
+            <div class="description" >
+               <h1><?php echo $annonce['title']; ?></h1>
+               <h2><?php echo $annonce['region']; ?></h2>
+               <p><?php echo $annonce['prices']; ?> € par nuit</p>
                <a href="../reservation_part.php/reservation_page.php?id=<?php echo $_SESSION['annonce_id'] = $annonce['id']; ?>">Voir plus</a>
             </div>
          </div>
+         <!-- <hr> -->
       <?php endforeach; ?>
-      <div class="annonces_items">
-         <div class="img" data-aos="fade-right">
-            <img src="images/paris75.png" alt="">
-         </div>
-      </div>
-      <hr>
    </section>
    <section class="guest_box">
       <h1>Be our guest</h1>
       <h2>Relax whilst our team takes care of the details.</h2>
       <div class="guest_items">
-         <div class="img" data-aos="zoom-in-down">
-            <div class="overlay" data-aos="zoom-in-down">
+         <div class="img">
+            <div class="overlay">
                <p>We prepare the home, villa or chalet with professional housekeeping, high quality linens & toiletries.</p>
             </div>
          </div>
          <p class="active">We prepare the home, villa or chalet with professional housekeeping, high quality linens & toiletries.</p>
          <div class="img_text">
             <div class="img_text_item noreverse">
-               <div class="image" data-aos="fade-down-right" data-aos-delay="50">
+               <div class="image">
                </div>
-               <div class="text" data-aos="fade-down-left" data-aos-delay="150">
+               <div class="text">
                   <p>We welcome you in person upon arrival.</p>
                </div>
             </div>
             <div class="img_text_item reverse">
-               <div class="text" data-aos="fade-up-right" data-aos-delay="50">
+               <div class="text" >
                   <p>We are here for you around the clock.</p>
                </div>
-               <div class="image" data-aos="fade-up-left" data-aos-delay="100">
+               <div class="image">
                   <!-- <img src="	" alt=""> -->
                </div>
             </div>
          </div>
       </div>
    </section>
-   <section class="footer" data-aos="fade-right" data-aos-anchor-placement="center-bottom">
+   <section class="footer">
       <footer>
          <ul>
-            <h3 data-aos-delay="50" data-aos="fade-right">CONSISTO</h3>
+            <h3>CONSISTO</h3>
             <br><br>
-            <li data-aos-delay="100" data-aos="fade-right">A propos</li>
+            <li>A propos</li>
             <br>
-            <li data-aos-delay="150" data-aos="fade-right">Carrières</li>
+            <li>Carrières</li>
             <br>
-            <li data-aos-delay="200" data-aos="fade-right">Application</li>
+            <li>Application</li>
             <br>
-            <li data-aos-delay="250" data-aos="fade-right">Media</li>
+            <li>Media</li>
             <br>
-            <li data-aos-delay="300" data-aos="fade-right">Inspirations</li>
+            <li>Inspirations</li>
             <br>
          </ul>
          <ul>
-            <h3 data-aos-delay="350" data-aos="fade-right">CONTACT</h3>
+            <h3>CONTACT</h3>
             <br><br>
-            <li data-aos-delay="400" data-aos="fade-right">Nous contacter</li>
+            <li>Nous contacter</li>
             <br>
-            <li data-aos-delay="450" data-aos="fade-right">Presse</li>
+            <li>Presse</li>
             <br>
-            <li data-aos-delay="500" data-aos="fade-right">Devenez partenaire</li>
+            <li>Devenez partenaire</li>
             <br>
          </ul>
          <ul>
-            <h3 data-aos-delay="550" data-aos="fade-right">TERME ET CONDITIONS</h3>
+            <h3>TERME ET CONDITIONS</h3>
             <br><br>
-            <li data-aos-delay="600" data-aos="fade-right">Conditions générales</li>
+            <li>Conditions générales</li>
             <br>
-            <li data-aos-delay="650" data-aos="fade-right">Mentions légales</li>
+            <li>Mentions légales</li>
             <br>
-            <li data-aos-delay="700" data-aos="fade-right">Fonctionnalité du site</li>
+            <li>Fonctionnalité du site</li>
             <br>
          </ul>
          <ul class="input">
-            <h3 data-aos-delay="750" data-aos="fade-right">ABONNEZ-VOUS A NOTRE NEWSLETTER</h3>
-            <br data-aos-delay="800" data-aos="fade-right"><br>
-            <input data-aos-delay="850" data-aos="fade-right" type="text" placeholder="Email"><br><br>
-            <button data-aos-delay="900" data-aos="fade-right" type="submit">JE M'ABONNE</button>
+            <h3>ABONNEZ-VOUS A NOTRE NEWSLETTER</h3>
+            <br><br>
+            <input type="text" placeholder="Email"><br><br>
+            <button type="submit">JE M'ABONNE</button>
          </ul>
       </footer>
       <div class="logo">
@@ -212,10 +207,8 @@ if (!$annonces) {
       </div>
    </section>
    <script src="./home.js"></script>
-   <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
    <script>
       AOS.init();
    </script>

@@ -127,7 +127,7 @@ if (isset($_POST["post_button"])) {
     $fifth_picture = $_FILES['fifth_picture']["name"];
 
 
-    // Déplacer les fichiers téléchargés vers un dossier sur le serveur
+    
     move_uploaded_file($_FILES["first_picture"]["tmp_name"], "dossier_images/" . $first_pic);
     move_uploaded_file($_FILES["second_picture"]["tmp_name"], "dossier_images/" . $second_pic);
     move_uploaded_file($_FILES["third_picture"]["tmp_name"], "dossier_images/" . $third_pic);

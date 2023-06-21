@@ -19,6 +19,36 @@ if (!$annonce) {
     exit();
 }
 
+if (isset($_POST['comment_btn'])) {
+    $user_id = $_SESSION["user_id"];
+    $username = $_SESSION["username"];
+    $annonce_id = $_GET['id'];
+    $content = $_POST['comment_content'];
+
+    $annonce_requete = $bdd->prepare('INSERT INTO annonces_comments (user_id, username, body, annonces_id) VALUES (:user_id, :username, :content, :annonce_id)');
+    $annonce_requete->execute([
+        "user_id" => $user_id,
+        "username" => $username,
+        "content" => $content,
+        "annonce_id" => $annonce_id,
+    ]);
+
+    if ($annonce_requete) {
+        echo "Insertion réussie.";
+    } else {
+        echo "Échec de l'insertion.";
+    }
+}
+
+$comment_query = $bdd->prepare('SELECT * FROM annonces_comments WHERE annonces_id = :annonce_id');
+$comment_query->bindParam(':annonce_id', $annonce_id);
+$comment_query->execute();
+$user_comment = $comment_query->fetchAll(PDO::FETCH_ASSOC);
+
+
+$users_query = $bdd->prepare('SELECT users.username FROM users INNER JOIN annonces_comments ON users.id = annonces_comments.user_id');
+$users_query->execute();
+$usernames = $users_query->fetchAll(PDO::FETCH_COLUMN);
 
 ?>
 
@@ -29,14 +59,6 @@ if (!$annonce) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="reservation.css">
     <title>Home consisto-Paris</title>
 </head>
@@ -335,6 +357,27 @@ if (!$annonce) {
                 </div>
             </section>
         </section>
+        <div class="reservation_details">
+            <h2>Commentaires</h2>
+            <form method="post">
+                <input type="text" name="comment_content"><button name="comment_btn">Commentez</button>
+                <?php
+                $currentUsername = '';
+
+                foreach ($user_comment as $comment) :
+                    if ($comment['username'] != $currentUsername) :
+                        $currentUsername = $comment['username'];
+                        echo "<h2>$currentUsername</h2>";
+                    endif;
+                ?>
+                    <ul>
+                        <li><?php echo $comment['body']; ?></li>
+                        <li><?php echo $comment['created_at']; ?></li>
+                    </ul>
+                <?php endforeach; ?>
+
+            </form>
+        </div>
         <section class="footer">
             <footer>
                 <ul>
@@ -405,7 +448,6 @@ if (isset($_POST["reservation_ok"])) {
         if ($existing_reservation_query->rowCount() > 0) {
             echo "<script>alert('La date sélectionnée n\'est pas disponible. Veuillez choisir une autre date.');</script>";
         } else {
-            // Insérer la nouvelle réservation
             $requete = $bdd->prepare('INSERT INTO reservations (users_id, annonces_id, annonces_date, reservations_price) VALUES (:user_id, :id, :date_input, :price)');
             $requete->execute([
                 "user_id" => $user_id,
