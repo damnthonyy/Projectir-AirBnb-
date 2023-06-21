@@ -146,15 +146,16 @@ $commentaires = $commentaires_query->fetchAll(PDO::FETCH_ASSOC);
     
     </section>
 
-    <?php foreach ($commentaires as $commentaire) : ?>
-        <div class="comment">
-        <ul class="comment_item">
+    <div class="comment">
+    <ul class="comment_item">
+        <?php foreach ($commentaires as $commentaire) : ?>
             <li>
                 <?php echo $commentaire['body'] ?>
             </li>
-        </ul>
-        </div>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
+    </ul>
+</div>
+
 
     
 
