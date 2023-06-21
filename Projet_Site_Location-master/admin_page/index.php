@@ -1,7 +1,13 @@
 <?php
+
+
+
 session_start();
-require('../function.php');
-$sql = (new Sql())->getPdo();
+ require('../function.php');
+ $sql = (new Sql())->getPdo();
+
+
+
 
 
 $prepare = $sql->query("SELECT * FROM `users`");

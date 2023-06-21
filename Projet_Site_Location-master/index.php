@@ -1,14 +1,23 @@
 
 <?php
-require_once("function.php");
-$sql = (new Sql())->getPdo();
+
+
+
+
+require('function.php');
+
+ $sql = (new Sql())->getPdo();
 
 $prepare = $sql->prepare("SELECT region FROM `annonces` ");
 $prepare -> execute();
 
-$annonce = $sql->prepare("SELECT * FROM `annonces`");
-$annonce -> execute();
+if(!empty($_POST['search'])){
+   $annonce = $sql->prepare("SELECT * FROM `annonces` WHERE region = :region");
+ $annonce->execute(array(':region'=> $_POST['search']));
+}else{
+}
 ?>
+
 
 
 
@@ -85,7 +94,7 @@ $annonce -> execute();
             <h1>CONSISTO PARIS</h1>
             <div class="search-bar">
                <div class="container">
-                  <form action="./annonces_post_part.php/post+reservation.php" method="post">
+                  <form action="" method="post">
                      <div class="arrival">
                         <ion-icon name="calendar-outline"></ion-icon>
                         <input type="text" name="arrival" id="arrival" placeholder="Arrival">
@@ -129,8 +138,9 @@ $annonce -> execute();
          </div>
       </section>
       <section class="annonces">
-         <h1>Find a stay in our apartments and rooms</h1>
-         <?php while ($annonces = $annonce-> fetch(mode: pdo::FETCH_ASSOC)){ ?>
+         
+         <?php if (isset($annonce)&&  $annonce->rowCount() > 0) {while ($annonces = $annonce-> fetch(mode: pdo::FETCH_ASSOC)){ ?>
+            <h1>Find a stay in our apartments and rooms</h1>
          <div class="annonces_items">
             
             
@@ -145,7 +155,7 @@ $annonce -> execute();
             
          </div>
          <hr>
-         <?};?>
+         <?};} else {}?>
         
       <section class="guest_box">
          <h1>Be our guest</h1>

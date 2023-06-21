@@ -1,9 +1,0 @@
-{
-    "name": "dai/projet_airbnb",
-    "autoload": {
-        "psr-4": {
-            "Dai\\ProjetAirbnb\\": "src/"
-        }
-    },
-    "require": {}
-}

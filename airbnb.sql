@@ -22,7 +22,7 @@ SET time_zone = "+00:00";
 --
 CREATE Database IF NOT EXISTS `airbnb`;
 -- --------------------------------------------------------
-
+USE `airbnb`;
 --
 -- Table structure for table `annonces`
 --
