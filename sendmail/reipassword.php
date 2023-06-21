@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Réinitialisation du mot de passe</title>
+    <link rel="stylesheet" href="./css/reipassword.css">
 </head>
-<body>
-    <h2>Forgot password</h2>
-    <form action="" method="post">
-        <input type="email" placeholder="Adresse email *" name="email">
-        <button type="submit" >Send a password</button>
-    </form>
+<body class="forgot_password_body" >
+
+    <div class="logo">
+        <img src="./img/Consisto-removebg-preview.png" alt="">
+    </div>
+
+    <div class="forgot_password_form">
+        <h2>Mot de passe oublié</h2>
+        <form action="" method="post">
+            <input type="email" placeholder="Adresse email *" name="email">
+            <button type="submit" >Send a password</button>
+        </form>
+    </div>
 </body>
 </html>
 

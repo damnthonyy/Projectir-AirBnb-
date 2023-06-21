@@ -17,7 +17,7 @@ if(isset($_GET['token']) && $_GET['token']!= ''){
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="./style.css">
+            <link rel="stylesheet" href="../css/style.css">
             <title>CHANGER DE MOT DE PASSE</title>
         </head>
         <body class="update_password_body">
@@ -60,7 +60,7 @@ if (isset($_POST["update_password"])) {
     if ($result) {
 
         //Rédiriger l'utilisateur vers la page de connexion après avoir modifier le mot de passe,
-        header('Location: http://localhost/Projet_Site_Location-2/sendmail/index.php');
+        header('Location: http://localhost/Projet_Site_Location-2/sendmail/pageconnexion.php');
 
         // et envoyer un mail pour notifier la modification du mot de passe.
         $subject = "Votre mot de passe a été modifié";
@@ -85,7 +85,6 @@ if (isset($_POST["update_password"])) {
 
     } else {
         // header('Location: http://localhost/Projet_Air_BnB/update_fail.php');
-        echo "ner viezns pas";
         exit();
     }
 }
