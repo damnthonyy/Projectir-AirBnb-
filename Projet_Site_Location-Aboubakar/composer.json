@@ -1,0 +1,9 @@
+{
+    "name": "dai/projet_site_location-aboubakar",
+    "autoload": {
+        "psr-4": {
+            "src\\": "src/"
+        }
+    },
+    "require": {}
+}
