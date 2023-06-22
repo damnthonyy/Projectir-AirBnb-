@@ -19,6 +19,36 @@ if (!$annonce) {
     exit();
 }
 
+if (isset($_POST['comment_btn'])) {
+    $user_id = $_SESSION["user_id"];
+    $username = $_SESSION["username"];
+    $annonce_id = $_GET['id'];
+    $content = $_POST['comment_content'];
+
+    $annonce_requete = $bdd->prepare('INSERT INTO annonces_comments (user_id, username, body, annonces_id) VALUES (:user_id, :username, :content, :annonce_id)');
+    $annonce_requete->execute([
+        "user_id" => $user_id,
+        "username" => $username,
+        "content" => $content,
+        "annonce_id" => $annonce_id,
+    ]);
+
+    if ($annonce_requete) {
+        echo "Insertion réussie.";
+    } else {
+        echo "Échec de l'insertion.";
+    }
+}
+
+$comment_query = $bdd->prepare('SELECT * FROM annonces_comments WHERE annonces_id = :annonce_id');
+$comment_query->bindParam(':annonce_id', $annonce_id);
+$comment_query->execute();
+$user_comment = $comment_query->fetchAll(PDO::FETCH_ASSOC);
+
+
+$users_query = $bdd->prepare('SELECT users.username FROM users INNER JOIN annonces_comments ON users.id = annonces_comments.user_id');
+$users_query->execute();
+$usernames = $users_query->fetchAll(PDO::FETCH_COLUMN);
 
 ?>
 
@@ -335,6 +365,27 @@ if (!$annonce) {
                 </div>
             </section>
         </section>
+        <div class="reservation_details">
+            <h2>Commentaires</h2>
+            <form method="post">
+                <input type="text" name="comment_content"><button name="comment_btn">Commentez</button>
+                <?php
+                $currentUsername = '';
+
+                foreach ($user_comment as $comment) :
+                    if ($comment['username'] != $currentUsername) :
+                        $currentUsername = $comment['username'];
+                        echo "<h2>$currentUsername</h2>";
+                    endif;
+                ?>
+                    <ul>
+                        <li><?php echo $comment['body']; ?></li>
+                        <li><?php echo $comment['created_at']; ?></li>
+                    </ul>
+                <?php endforeach; ?>
+
+            </form>
+        </div>
         <section class="footer">
             <footer>
                 <ul>
@@ -405,7 +456,6 @@ if (isset($_POST["reservation_ok"])) {
         if ($existing_reservation_query->rowCount() > 0) {
             echo "<script>alert('La date sélectionnée n\'est pas disponible. Veuillez choisir une autre date.');</script>";
         } else {
-            // Insérer la nouvelle réservation
             $requete = $bdd->prepare('INSERT INTO reservations (users_id, annonces_id, annonces_date, reservations_price) VALUES (:user_id, :id, :date_input, :price)');
             $requete->execute([
                 "user_id" => $user_id,

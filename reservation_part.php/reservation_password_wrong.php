@@ -75,12 +75,13 @@ if (isset($_POST["log_in_button"])) {
     $requete->execute(["email" => $email]);
     $user = $requete->fetch(PDO::FETCH_ASSOC);
 
+
     if ($user) {
         if (password_verify($password, $user["users_password"])) {
             echo "successfully connected";
             $_SESSION["username"] = $user["username"];
             $_SESSION["user_id"] = $user["id"];
-            header("Location: ../reservation_part.php/reservation_page.php?id=" . $_SESSION['annonce_id']);
+            header("Location: ../home/home.php");
             exit();
         }
     }
