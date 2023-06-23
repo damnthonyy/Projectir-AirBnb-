@@ -21,7 +21,8 @@
         require './view/profil.php';
         break;
 
-    case 'reservation';
+    case 'page_de_reservation';
+        
         require './view/reservation_page.php';
         break;
     case 'post';
@@ -45,4 +46,6 @@
     echo "erreur 404";
     break;
 }
+
+
 

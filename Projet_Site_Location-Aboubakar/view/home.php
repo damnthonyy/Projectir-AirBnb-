@@ -1,5 +1,6 @@
 <?php
 
+use src\Annonce_id\Id;
 use src\Factory\Sql;
 
 session_start(); 
@@ -119,13 +120,18 @@ $annonces = $annonceQuery->fetchAll(PDO::FETCH_ASSOC);
       <?php if (empty($_POST['search']) || $_POST['search'] === $annonce['region']) : ?>
          <div class="annonces_items">
             <div class="img" data-aos="fade-right">
-               <a href="Page_de_reservation?id=<?php echo $_SESSION['annonce_id'] = $annonce['id']; ?>"><img src="../annonces_post_part.php/dossier_images/<?php echo $annonce['images3']; ?>" alt=""></a>
-            </div>
-            <div class="description" data-aos="fade-up">
-               <h1 data-aos="fade-up" data-aos-delay="50"><?php echo $annonce['title']; ?></h1>
-               <h2 data-aos="fade-up" data-aos-delay="150"><?php echo $annonce['region']; ?></h2>
-               <p data-aos="fade-up" data-aos-delay="100"><?php echo $annonce['prices']; ?> € par nuit</p>
-               <a href="page_de_reservation?id=<?php echo $_SESSION['annonce_id'] = $annonce['id']; ?>">Voir plus</a>
+              <form action="page_de_reservation" method="post">
+
+               <button name='id'value="<?=$_SESSION['annonce_id']= $annonce['id']?>" style="background: transparent;border: 0;"><img src="./annonces_post_part.php/dossier_images/<?php echo $annonce['images3']; ?>" alt=""></button>
+               </div>
+               <div class="description" data-aos="fade-up">
+                  <h1 data-aos="fade-up" data-aos-delay="50"><?php echo $annonce['title']; ?></h1>
+                  <h2 data-aos="fade-up" data-aos-delay="150"><?php echo $annonce['region']; ?></h2>
+                  <p data-aos="fade-up" data-aos-delay="100"><?php echo $annonce['prices']; ?> € par nuit</p>
+               
+                  
+                  <button type="submit" name="id" value="<?=$_SESSION['annonce_id']= $annonce['id']?>">Voir plus</button>
+               </form>
             </div>
          </div>
       <?php endif; ?>

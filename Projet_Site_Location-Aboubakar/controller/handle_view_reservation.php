@@ -15,7 +15,7 @@ try {
 }
 
 
-$annonce_id = $_SESSION['annonce_id'];
+$annonce_id = $_POST['id'];
 $annonce_query = $bdd->prepare("SELECT * FROM annonces WHERE id = :annonce_id");
 $annonce_query->bindParam(':annonce_id', $annonce_id);
 $annonce_query->execute();
@@ -31,7 +31,7 @@ if (!$annonce) {
 if (isset($_POST['comment_btn'])) {
     $user_id = $_SESSION["user_id"];
     $username = $_SESSION["username"];
-    $annonce_id = $_SESSION['annonce_id'];
+    $annonce_id = $_GET['id'];
     $content = $_POST['comment_content'];
 
     $annonce_requete = $bdd->prepare('INSERT INTO annonces_comments (user_id, username, body, annonces_id) VALUES (:user_id, :username, :content, :annonce_id)');

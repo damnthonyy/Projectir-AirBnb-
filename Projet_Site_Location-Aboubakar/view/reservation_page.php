@@ -56,11 +56,11 @@
         <section class="reservation">
             <div class="reservation_item">
                 <div class="reserv_img">
-                    <img src="../annonces_post_part.php/dossier_images/<?php echo $annonce['images3']; ?>" alt="Image de l'annonce">
-                    <img src="../annonces_post_part.php/dossier_images/<?php echo $annonce['images2']; ?>" alt="Image de l'annonce">
-                    <img src="../annonces_post_part.php/dossier_images/<?php echo $annonce['images1']; ?>" alt="Image de l'annonce">
-                    <img src="../annonces_post_part.php/dossier_images/<?php echo $annonce['images4']; ?>" alt="Image de l'annonce">
-                    <img src="../annonces_post_part.php/dossier_images/<?php echo $annonce['images5']; ?>" alt="Image de l'annonce">
+                    <img src="./annonces_post_part.php/dossier_images/<?php echo $annonce['images3']; ?>" alt="Image de l'annonce">
+                    <img src="./annonces_post_part.php/dossier_images/<?php echo $annonce['images2']; ?>" alt="Image de l'annonce">
+                    <img src="./annonces_post_part.php/dossier_images/<?php echo $annonce['images1']; ?>" alt="Image de l'annonce">
+                    <img src="./annonces_post_part.php/dossier_images/<?php echo $annonce['images4']; ?>" alt="Image de l'annonce">
+                    <img src="./annonces_post_part.php/dossier_images/<?php echo $annonce['images5']; ?>" alt="Image de l'annonce">
 
                 </div>
 

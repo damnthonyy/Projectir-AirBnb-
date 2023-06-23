@@ -24,13 +24,13 @@
                 <p>Si vous êtes déjà inscrit(e) chez blabla, veuillez vous connecter ici :</p>
                 <form action="" method="POST">
                     <div class="log_in_input">
-                        <input type="text" placeholder="Adresse email *" name="log_in_email">
+                        <input type="text" placeholder="Adresse email *" autocomplete="off"  name="log_in_email">
                         <input type="password" placeholder="Mot de passe *" name="log_in_password">
                         <button class="log_in_button" name="log_in_button">CONNEXION</button>
                     </div>
                 </form>
                 <p>Votre mot de passe ou votre mail est incorrect</p>
-                <p> <a href="./update_password.php"> Vous avez oublié votre mot de passe ?</a></p>
+                <p> <a href="update_password"> Vous avez oublié votre mot de passe ?</a></p>
                 </p>
             </div>
         </div>
@@ -40,9 +40,9 @@
                 <p>Inscrivez-vous et profitez de nos appartements.</p>
                 <div class="sign_in_input">
                     <form action="" class="sign_in_form" method="POST">
-                        <input type="text" placeholder="Adresse email *" name="email">
+                        <input type="text" placeholder="Adresse email *" autocomplete="off" name="email">
                         <input type="password" placeholder="Mot de passe *" name="password">
-                        <input type="text" placeholder="Nom d'utilisateur" name="username">
+                        <input type="text" placeholder="Nom d'utilisateur" autocomplete="off" name="username">
                         <div class="radio">
                             <label for="homme">Homme</label>
                             <input type="radio" placeholder="" name="gender" value="male">
@@ -65,6 +65,6 @@
 <?php require './controller/handle_password.php'?>
 
 
-<script src="./script.js"></script>
+<script src="./style/script.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

@@ -61,7 +61,7 @@
 
                     <?php if ($reservation_annonce) : ?>
                         <div class="img">
-                            <img src="../annonces_post_part.php/dossier_images/<?php echo $reservation_annonce_image; ?>" alt="">
+                            <img src="./annonces_post_part.php/dossier_images/<?php echo $reservation_annonce_image; ?>" alt="">
                             <div class="img_item">
                                 <span>20 Rue Beautreillis, Paris 75004</span>
                                 <span>Date de réservation: <?php echo $reservation['annonces_date']; ?></span>
