@@ -15,7 +15,7 @@ if (isset($_COOKIE['session_id']) && !empty($_COOKIE['session_id'])) {
 
     // L'utilisateur n'est pas connecté
     //on le rédirige vers la page de connexion
-    header("Location: ../sendmail/index.php");
+    header("Location: ../sendmail/pageconnexion.php");
     unset($_COOKIE);
     // setcookie('session_id', '', time()- 10 , '/');
 }

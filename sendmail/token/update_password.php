@@ -1,5 +1,6 @@
 <?php
-include_once '../bd.php';
+
+require "../bd.php";
 
 if(isset($_GET['token']) && $_GET['token']!= ''){
     $stmt = $bdd -> prepare("SELECT mail FROM users WHERE token = ?");
@@ -41,14 +42,8 @@ if(isset($_GET['token']) && $_GET['token']!= ''){
     }
 }
 
-
-
-
-require "../bd.php";
-
 if (isset($_POST["update_password"])) {
     
-    $mail = $_POST["email"];
     $new_password = $_POST["validate_password"];
     $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
 
@@ -65,7 +60,7 @@ if (isset($_POST["update_password"])) {
         // et envoyer un mail pour notifier la modification du mot de passe.
         $subject = "Votre mot de passe a été modifié";
 
-        $url = "http://localhost/Projet_Site_Location-2/sendmail/token/update_password.php?token=$token";
+        $url = "http://localhost/Projet_Site_Location-2/sendmail/token/update_password.php?";
 
         $message = "Bonjour, votre mot de passe a été modifié avec succès. Si vous n'êtes à l'origine de ce changement veuillez cliquer sur le lien pour modifier votre mot de passe: $url";
         $headers = "content-Type: text/plain; charset=utf-8";

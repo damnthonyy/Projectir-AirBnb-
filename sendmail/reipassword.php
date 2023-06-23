@@ -16,7 +16,7 @@
         <h2>Mot de passe oublié</h2>
         <form action="" method="post">
             <input type="email" placeholder="Adresse email *" name="email">
-            <button type="submit" >Send a password</button>
+            <button type="submit" >Send a mail</button>
         </form>
     </div>
 </body>
