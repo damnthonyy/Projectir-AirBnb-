@@ -43,13 +43,14 @@ if(isset($_GET['token']) && $_GET['token']!= ''){
 }
 
 if (isset($_POST["update_password"])) {
+    $email = $_POST["email"];
     
     $new_password = $_POST["validate_password"];
     $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
 
     $stmt = $bdd->prepare("UPDATE users SET users_password = :validate_password, token=NULL WHERE mail = :email");
     $stmt->bindValue(':validate_password', $hashed_password);
-    $stmt->bindValue(':email', $mail);
+    $stmt->bindValue(':email', $email);
     $result = $stmt->execute();
 
     if ($result) {
